@@ -1,0 +1,5 @@
+# Required because Angular summary files contain full paths.
+# If we run under a sandbox, the sandbox hash appears in the paths
+# and they are not durable when read under a different sandbox.
+build --strategy=AngularTemplateCompile=standalone
+
