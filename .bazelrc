@@ -1,5 +1,16 @@
+# Make TypeScript compilation fast, by keeping a few copies of the compiler
+# running as daemons, and cache SourceFile AST's to reduce parse time.
+build --strategy=TypeScriptCompile=worker
+
 # Required because Angular summary files contain full paths.
 # If we run under a sandbox, the sandbox hash appears in the paths
 # and they are not durable when read under a different sandbox.
 build --strategy=AngularTemplateCompile=standalone --spawn_strategy=standalone
 
+# Don't create bazel-* symlinks in the WORKSPACE directory.
+# These require .gitignore and may scare users.
+# Also, it's a workaround for https://github.com/bazelbuild/rules_typescript/issues/12
+# which affects the common case of having `tsconfig.json` in the WORKSPACE directory.
+#
+# Instead, you should run `bazel info` to find out where the outputs went.
+build --symlink_prefix=/
