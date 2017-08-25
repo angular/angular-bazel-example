@@ -17,6 +17,8 @@ $ bazel run @yarn//:yarn
 $ bazel build src
 ```
 
+*Note: there is a "watch mode" for Bazel available at https://github.com/bazelbuild/bazel-watcher*
+
 Notes:
 
 - we use bazel to run yarn simply to be sure we get the same versions of Node and Yarn as CI and co-workers (hermeticity FTW)
