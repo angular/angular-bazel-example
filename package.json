@@ -4,16 +4,23 @@
     "description": "Demo of bazel rules for angular",
     "license": "Apache 2.0",
     "devDependencies": {
-        "@angular/common": "4.3.0",
-        "@angular/compiler": "4.3.0",
-        "@angular/compiler-cli": "4.3.0",
-        "@angular/core": "4.3.0",
-        "@angular/platform-browser": "4.3.0",
-        "@types/node": "^7.0.18",
-        "clang-format": "^1.0.53",
-        "protobufjs": "5.0.0",
+        "@angular/animations": "angular/animations-builds",
+        "@angular/bazel": "angular/bazel-builds",
+        "@angular/common": "angular/common-builds",
+        "@angular/compiler": "angular/compiler-builds",
+        "@angular/compiler-cli": "angular/compiler-cli-builds",
+        "@angular/core": "angular/core-builds",
+        "@angular/platform-browser": "angular/platform-browser-builds",
         "rxjs": "^5.4.1",
         "typescript": "~2.3.4",
         "zone.js": "~0.8.13"
+    },
+    "scripts": {
+        "postinstall": "ngc -p angular.tsconfig.json",
+        "test": "bazel build ..."
+    },
+    "dependencies": {
+        "@bazel/typescript": "TODO(alexeagle): this should not be needed, should be a dep of @angular/bazel",
+        "@bazel/typescript": "^0.0.7"
     }
 }

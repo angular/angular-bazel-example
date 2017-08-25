@@ -6,8 +6,7 @@ import {Component, NgModule} from '@angular/core';
     <div>Hello {{ name }}!</div>
     <input type="text" [value]="name" (input)="name = $event.target.value"/>
   `,
-  // TODO(alexeagle): broken, maybe ngc doesn't look in bazel-bin?
-  // styleUrls: ['./hello-world-styles.css']
+  styleUrls: ['./hello-world-styles.css']
 })
 export class HelloWorldComponent {
   name: string = 'world';
