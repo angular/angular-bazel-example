@@ -9,3 +9,5 @@ build --strategy=TypeScriptCompile=worker
 #
 # Instead, you should run `bazel info bazel-bin` to find out where the outputs went.
 build --symlink_prefix=/
+
+query --noimplicit_deps --output graph
