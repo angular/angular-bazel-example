@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           key: angular_bazel_example-{{ .Branch }}-{{ checksum "yarn.lock" }}
-
+      - run: bazel info release
       - run: bazel run @yarn//:yarn
       - run: bazel build ...
 
