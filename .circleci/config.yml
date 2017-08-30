@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/ng
     docker:
-      - image: angular/ngcontainer
+      - image: angular/ngcontainer:0.0.1
     steps:
       - checkout
 
