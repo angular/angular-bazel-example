@@ -2,56 +2,58 @@
 # yarn lockfile v1
 
 
-"@angular/animations@angular/animations-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/animations-builds/tar.gz/42d80b4c36cfb693cf377d2481976bdfac9ff461"
+"@angular/animations@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.0.0-beta.5.tgz#c7bc8587af02595c017e9c63b881833492e0e19a"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/bazel@angular/bazel-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/bazel-builds/tar.gz/33be2628e7f26f78fd5c610d249f7fe3e3c21703"
+"@angular/bazel@angular/bazel-builds#a65c007":
+  version "5.0.0-beta.5-4ec5e28"
+  resolved "https://codeload.github.com/angular/bazel-builds/tar.gz/a65c007"
+  dependencies:
+    "@bazel/typescript" "~0.0.7"
 
-"@angular/common@angular/common-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/common-builds/tar.gz/27d577254fb6ecb92cd9d1551912be6b9dfb6454"
+"@angular/common@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-5.0.0-beta.5.tgz#21c13bd4ca852c751e09e6e99c8418896d1e6752"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/compiler-cli@angular/compiler-cli-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/compiler-cli-builds/tar.gz/24fe31b2b277a224687e359c1d6d25a512b64119"
+"@angular/compiler-cli@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.0.0-beta.5.tgz#6370e0df397fe74f7a9846a5c6591ad3900ff4d8"
   dependencies:
-    "@angular/tsc-wrapped" "5.0.0-beta.4"
+    "@angular/tsc-wrapped" "5.0.0-beta.5"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
     tsickle "^0.23.4"
 
-"@angular/compiler@angular/compiler-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/compiler-builds/tar.gz/a38516ae2ddb0d9109dfe70a181a01c77f8fc03a"
+"@angular/compiler@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.0.0-beta.5.tgz#fae12e3f932136e5e7c92967ba177c500943b4cb"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@angular/core-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/core-builds/tar.gz/645d663b208e6766e2af7976da7752e681e1b9ef"
+"@angular/core@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.0.0-beta.5.tgz#285a5fc9603405d63d8f5131d8b2f90bd5c78858"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/platform-browser@angular/platform-browser-builds":
-  version "5.0.0-beta.4-1c2f3d4"
-  resolved "https://codeload.github.com/angular/platform-browser-builds/tar.gz/39c6ac0da81766bf207c5cb5a565da4ecc292ab9"
+"@angular/platform-browser@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-5.0.0-beta.5.tgz#ed32df2750150f620a1f64c4919b88beb3c0a1e2"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/tsc-wrapped@5.0.0-beta.4":
-  version "5.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@angular/tsc-wrapped/-/tsc-wrapped-5.0.0-beta.4.tgz#c766295a94049c28a3a7799c811509191b14a36c"
+"@angular/tsc-wrapped@5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@angular/tsc-wrapped/-/tsc-wrapped-5.0.0-beta.5.tgz#73f61a72fac81625d85ebb4c2d548b2641f51d7b"
   dependencies:
     tsickle "^0.21.0"
 
-"@bazel/typescript@^0.0.7":
+"@bazel/typescript@0.0.7", "@bazel/typescript@~0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@bazel/typescript/-/typescript-0.0.7.tgz#4ac0867c00948f9b8e7e4858fdfc4bed74c78fc0"
   dependencies:
