@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/alexeagle/angular-bazel-example.svg?style=svg)](https://circleci.com/gh/alexeagle/angular-bazel-example)
+
 # Example of building an Angular app with Bazel
 
 **This is in Alpha and depends on un-released version of Angular. There may be breaking changes.**
