@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/ng
+    docker:
+      - image: angular/ngcontainer
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: angular_bazel_example-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+      - run: bazel run @yarn//:yarn
+      - run: bazel build ...
+
+      - save_cache:
+          key: angular_bazel_example-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - "node_modules"
