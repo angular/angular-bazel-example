@@ -4,19 +4,19 @@
     "description": "Demo of bazel rules for angular",
     "license": "Apache 2.0",
     "dependencies": {
-        "@angular/animations": "angular/animations-builds",
-        "@angular/common": "angular/common-builds",
-        "@angular/core": "angular/core-builds",
-        "@angular/platform-browser": "angular/platform-browser-builds",
-        "@bazel/typescript": "0.0.7",
+        "@angular/animations": "5.0.0-beta.7",
+        "@angular/common": "5.0.0-beta.7",
+        "@angular/core": "5.0.0-beta.7",
+        "@angular/platform-browser": "5.0.0-beta.7",
+        "@bazel/typescript": "0.1.0",
         "rxjs": "^5.4.1",
         "zone.js": "~0.8.13"
     },
     "devDependencies": {
-        "@angular/bazel": "angular/bazel-builds",
-        "@angular/compiler": "angular/compiler-builds",
-        "@angular/compiler-cli": "angular/compiler-cli-builds",
-        "typescript": "~2.3.4"
+        "@angular/bazel": "5.0.0-beta.7",
+        "@angular/compiler": "5.0.0-beta.7",
+        "@angular/compiler-cli": "5.0.0-beta.7",
+        "typescript": "~2.4.x"
     },
     "scripts": {
         "postinstall": "ngc -p angular.tsconfig.json",
