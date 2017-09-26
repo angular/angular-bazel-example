@@ -58,9 +58,9 @@
     tsickle "0.24.x"
     typescript "2.4.x"
 
-"@bazel/typescript@alexeagle/rules_typescript#closure_js_binary":
-  version "0.1.0"
-  resolved "https://codeload.github.com/alexeagle/rules_typescript/tar.gz/72cbb1e5020f2088816e46689b010dcfcc6572e7"
+"@bazel/typescript@alexeagle/rules_typescript#0191bb2":
+  version "0.3.0"
+  resolved "https://codeload.github.com/alexeagle/rules_typescript/tar.gz/0191bb2edf2fce3c94bcbc689754343a17502b42"
   dependencies:
     "@types/node" "7.0.18"
     "@types/source-map" "^0.5.1"

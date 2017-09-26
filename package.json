@@ -8,7 +8,7 @@
         "@angular/common": "angular/common-builds#059f25b0a93fa6d9875232184c3a3917ddb7cfcb",
         "@angular/core": "angular/core-builds#e477818fe11b7e268be8b0acf2ec3ccc89991631",
         "@angular/platform-browser": "angular/platform-browser-builds#a69062cc65ea39d62be1ddf62baa6fadc5bec929",
-        "@bazel/typescript": "alexeagle/rules_typescript#closure_js_binary",
+        "@bazel/typescript": "alexeagle/rules_typescript#0191bb2",
         "rxjs": "^5.4.1",
         "zone.js": "~0.8.13"
     },

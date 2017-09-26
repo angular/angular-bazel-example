@@ -30,8 +30,8 @@ sass_repositories()
 git_repository(
     name = "io_bazel_rules_closure",
     remote = "https://github.com/alexeagle/rules_closure",
-    commit = "8ebcca3",
+    commit = "76c0383",
 )
 
-load("@build_bazel_rules_typescript//:defs.bzl", "patched_closure_repositories")
+load("@io_bazel_rules_closure//closure:defs.bzl", "patched_closure_repositories")
 patched_closure_repositories()
