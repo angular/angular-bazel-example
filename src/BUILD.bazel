@@ -8,3 +8,20 @@ ng_module(
   deps = ["//src/hello-world"],
   tsconfig = ":tsconfig.json",
 )
+
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_binary")
+
+closure_js_binary(
+    name = "prod_bundle",
+    deps = [":src"],
+    defs = [
+        "--module_resolution=NODE",
+        "--warning_level=QUIET",
+    ],
+    # this is short for no defs, not node fs
+    nodefs = [
+        # TODO(alexeagle): Disable type-based optimizations
+        # until we have tsickle_typed mode enabled
+        "--use_types_for_optimization",
+    ],
+)

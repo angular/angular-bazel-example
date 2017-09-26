@@ -4,18 +4,18 @@
     "description": "Demo of bazel rules for angular",
     "license": "Apache 2.0",
     "dependencies": {
-        "@angular/animations": "5.0.0-beta.7",
-        "@angular/common": "5.0.0-beta.7",
-        "@angular/core": "5.0.0-beta.7",
-        "@angular/platform-browser": "5.0.0-beta.7",
-        "@bazel/typescript": "0.1.0",
+        "@angular/animations": "angular/animations-builds#d47935fb8837bca1e74721b9878061b5ff008724",
+        "@angular/common": "angular/common-builds#059f25b0a93fa6d9875232184c3a3917ddb7cfcb",
+        "@angular/core": "angular/core-builds#e477818fe11b7e268be8b0acf2ec3ccc89991631",
+        "@angular/platform-browser": "angular/platform-browser-builds#a69062cc65ea39d62be1ddf62baa6fadc5bec929",
+        "@bazel/typescript": "alexeagle/rules_typescript#closure_js_binary",
         "rxjs": "^5.4.1",
         "zone.js": "~0.8.13"
     },
     "devDependencies": {
-        "@angular/bazel": "5.0.0-beta.7",
-        "@angular/compiler": "5.0.0-beta.7",
-        "@angular/compiler-cli": "5.0.0-beta.7",
+        "@angular/bazel": "angular/bazel-builds#d3676c17b307b0444e9779cba92d4df7365bae51",
+        "@angular/compiler": "angular/compiler-builds#43acf205ed49eb7d67f1b035ac48fada26ecd9de",
+        "@angular/compiler-cli": "angular/compiler-cli-builds#dff57ac5921e63c3327df89e48dc03e33efda32f",
         "typescript": "~2.4.x"
     },
     "scripts": {

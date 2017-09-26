@@ -1,7 +1,7 @@
 git_repository(
     name = "build_bazel_rules_nodejs",
     remote = "https://github.com/bazelbuild/rules_nodejs.git",
-    tag = "0.0.2",
+    tag = "0.1.6",
 )
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
@@ -26,3 +26,12 @@ git_repository(
 load("@io_bazel_rules_sass//sass:sass.bzl", "sass_repositories")
 
 sass_repositories()
+
+git_repository(
+    name = "io_bazel_rules_closure",
+    remote = "https://github.com/alexeagle/rules_closure",
+    commit = "8ebcca3",
+)
+
+load("@build_bazel_rules_typescript//:defs.bzl", "patched_closure_repositories")
+patched_closure_repositories()
