@@ -32,7 +32,17 @@ $ bazel query --output=graph ... | dot -Tpng > graph.png
 
 ![bazel query](graph.png)
 
-Notes:
+
+## Still missing
+
+Karma testing rules are in-progress, should be available Q4 2017
+
+Doesn't include devserver. Can use webpack as the development server, see https://github.com/gregmagolan/abc-demo-build-with-aot-universal
+
+Production bundling with https://github.com/bazelbuild/rules_closure/ is
+underway, should be available Q4 2017
+
+## Notes
 
 - we use bazel to run yarn simply to be sure we get the same versions of Node and Yarn as CI and co-workers (hermeticity FTW)
 - a `postinstall` task in the `package.json` prepares the `node_modules` directory by running the Angular compiler on third_party libraries (such as Angular itself) since these do not ship with generated code (eg. `ngfactory`s)
