@@ -2,7 +2,7 @@
 
 # Example of building an Angular app with Bazel
 
-**This is in Alpha and depends on un-released version of Angular. There may be breaking changes.**
+**This is experimental! There may be breaking changes.**
 
 ## Installation
 
@@ -12,14 +12,25 @@ Other platforms, see Bazel [installation instructions].
 
 [installation instructions]: https://bazel.build/versions/master/docs/install.html
 
+`ibazel` is a watch mode for Bazel. We recommend installing this from
+https://github.com/bazelbuild/bazel-watcher.
+
 ## Try it
 
 ```bash
+# Install packages, uses hermetic version of node and yarn
 $ bazel run @yarn//:yarn
-$ bazel build src
+$ ibazel build src
+# Make changes, observe the development round-trip time
 ```
 
-*Note: there is a "watch mode" for Bazel available at https://github.com/bazelbuild/bazel-watcher*
+Look at the dependency graph:
+
+```bash
+$ bazel query --output=graph ... | dot -Tpng > graph.png
+```
+
+![bazel query](graph.png)
 
 Notes:
 

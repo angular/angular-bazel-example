@@ -4,18 +4,17 @@
     "description": "Demo of bazel rules for angular",
     "license": "Apache 2.0",
     "dependencies": {
-        "@angular/animations": "5.0.0-beta.7",
-        "@angular/common": "5.0.0-beta.7",
-        "@angular/core": "5.0.0-beta.7",
-        "@angular/platform-browser": "5.0.0-beta.7",
-        "@bazel/typescript": "0.1.0",
+        "@angular/animations": "5.0.0-rc.0",
+        "@angular/common": "5.0.0-rc.0",
+        "@angular/core": "5.0.0-rc.0",
+        "@angular/platform-browser": "5.0.0-rc.0",
         "rxjs": "^5.4.1",
         "zone.js": "~0.8.13"
     },
     "devDependencies": {
-        "@angular/bazel": "5.0.0-beta.7",
-        "@angular/compiler": "5.0.0-beta.7",
-        "@angular/compiler-cli": "5.0.0-beta.7",
+        "@angular/bazel": "5.0.0-rc.0",
+        "@angular/compiler": "5.0.0-rc.0",
+        "@angular/compiler-cli": "5.0.0-rc.0",
         "typescript": "~2.4.x"
     },
     "scripts": {
