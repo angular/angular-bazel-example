@@ -16,10 +16,17 @@
         "@angular/bazel": "5.0.0-rc.0",
         "@angular/compiler": "5.0.0-rc.0",
         "@angular/compiler-cli": "5.0.0-rc.0",
+        "@bazel/typescript": "alexeagle/rules_typescript#hacky_concat_serve",
+        "concurrently": "^3.5.0",
+        "lite-server": "^2.3.0",
+        "protractor": "^5.1.2",
         "typescript": "~2.4.x"
     },
     "scripts": {
-        "postinstall": "ngc -p angular.tsconfig.json",
-        "test": "bazel build ..."
+        "postinstall": "concurrently \"webdriver-manager update\" \"ngc -p angular.tsconfig.json\"",
+        "preserve": "bazel build src && ./bundle.sh",
+        "serve": "lite-server -c test/browser.config.json",
+        "pretest": "yarn run preserve",
+        "test": "concurrently \"yarn run serve\" protractor --kill-others --success first"
     }
 }

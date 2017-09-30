@@ -12,6 +12,7 @@ jobs:
       - run: bazel info release
       - run: bazel run @yarn//:yarn
       - run: bazel --bazelrc=docker.bazelrc build ...
+      - run: xvfb-run -a yarn test
 
       - save_cache:
           key: angular_bazel_example-{{ .Branch }}-{{ checksum "yarn.lock" }}
