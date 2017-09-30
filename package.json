@@ -8,6 +8,7 @@
         "@angular/common": "5.0.0-rc.0",
         "@angular/core": "5.0.0-rc.0",
         "@angular/platform-browser": "5.0.0-rc.0",
+        "requirejs": "^2.3.5",
         "rxjs": "^5.4.1",
         "zone.js": "~0.8.13"
     },
