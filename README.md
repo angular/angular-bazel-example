@@ -15,6 +15,9 @@ Other platforms, see Bazel [installation instructions].
 `ibazel` is a watch mode for Bazel. We recommend installing this from
 https://github.com/bazelbuild/bazel-watcher.
 
+`dot` is a handy tool for visualizing dependency graphs, and is used in some commands below.
+On Mac: `brew install graphviz`
+
 ## Try it
 
 ```bash
