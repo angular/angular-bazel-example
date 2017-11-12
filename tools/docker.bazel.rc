@@ -1,6 +1,6 @@
 # Bazel settings required under Docker sandboxing
 
-import %workspace%/.bazelrc
+import %workspace%/tools/bazel.rc
 
 # Workaround https://github.com/bazelbuild/bazel/issues/3645
 # Limit Bazel to consuming 3072K of RAM
