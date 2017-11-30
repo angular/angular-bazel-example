@@ -15,7 +15,10 @@ sass_binary(
 ng_module(
   name = "hello-world",
   srcs = glob(["*.ts"]),
-  deps = ["//src/lib"],
+  deps = [
+    "//src/lib",
+    "@rxjs//:rxjs",
+  ],
   assets = [":hello-world-styles"],
   tsconfig = "//src:tsconfig.json",
 )

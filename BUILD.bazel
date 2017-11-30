@@ -1,9 +1,43 @@
 package(default_visibility = ["//visibility:public"])
 exports_files(["tsconfig.json"])
 
+filegroup(
+    name = "static_scripts",
+    srcs = [
+        "node_modules/zone.js/dist/zone.min.js",
+        "node_modules/@angular/common/bundles/common.umd.js",
+        "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
+        "node_modules/@angular/core/bundles/core.umd.js",
+        "node_modules/requirejs/require.js",
+    ],
+)
+
 # NOTE: this will move to node_modules/BUILD in a later release
-filegroup(name = "node_modules", srcs = glob([
-    "node_modules/**/*.js",
-    "node_modules/**/*.json",
-    "node_modules/**/*.d.ts",
-]))
+filegroup(
+    name = "node_modules",
+    # NB: rxjs is not in this list, because we build it from sources using the
+    # label @rxjs//:rxjs
+    srcs = glob(["/".join(["node_modules", pkg, "**", ext]) for pkg in [
+        "@angular",
+        "tsickle",
+        "tsutils",
+        "typescript",
+        "@types",
+    ] for ext in [
+        "*.js",
+        "*.json",
+        "*.d.ts",
+    ]]),
+)
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_devserver")
+
+ts_devserver(
+  name = "devserver",
+  deps = ["//src"],
+  serving_path = "/bundle.js",
+  static_files = [
+    "//src:static_files",
+    "//:static_scripts",
+  ],
+)
