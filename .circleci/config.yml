@@ -17,7 +17,8 @@ jobs:
     steps:
       - checkout:
           <<: *post_checkout
-      - run: buildifier -mode=check $(find . -iname BUILD.bazel -type f) || buildifier -mode=diff $(find . -iname BUILD.bazel -type f)
+      - run: buildifier -mode=diff $(find . -iname BUILD.bazel -type f)
+      - run: buildifier -mode=check $(find . -iname BUILD.bazel -type f)
 
   build:
     <<: *job_defaults
