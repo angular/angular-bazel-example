@@ -8,3 +8,8 @@ ng_module(
   deps = ["//src/hello-world"],
   tsconfig = ":tsconfig.json",
 )
+
+filegroup(
+  name = "static_files",
+  srcs = ["index.html"],
+)

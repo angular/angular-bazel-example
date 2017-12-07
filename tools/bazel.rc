@@ -8,7 +8,7 @@ build --strategy=TypeScriptCompile=worker
 # which affects the common case of having `tsconfig.json` in the WORKSPACE directory.
 #
 # Instead, you should run `bazel info bazel-bin` to find out where the outputs went.
-build --symlink_prefix=/
+build --symlink_prefix=dist/
 
 # Workaround rules_sass still using old 'set' constructor
 # This is an error in bazel >= 0.6 unless this flag is set

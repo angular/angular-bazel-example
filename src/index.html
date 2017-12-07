@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Angular Bazel Example</title>
+  </head>
+  <body>
+    <app-component></app-component>
+    <script src="/node_modules/zone.js/dist/zone.min.js"></script>
+
+    <script src="/node_modules/requirejs/require.js"></script>
+    <!--
+      For development mode, this script will be bundled on-the-fly by
+      the devserver, based on the latest JS files built by Bazel.
+      For production, you should be able to use the same index.html file, but
+      this JS resource would be served from a static file.
+    -->
+    <script src="/bundle.js"></script>
+
+    <script src="/node_modules/@angular/core/bundles/core.umd.js"></script>
+    <script src="/node_modules/@angular/common/bundles/common.umd.js"></script>
+    <script src="/node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+
+    <script>require(['angular_bazel_example/src/main'])</script>
+  </body>
+</html>
