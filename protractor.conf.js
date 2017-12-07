@@ -3,7 +3,7 @@ exports.config = {
   capabilities:
       {browserName: 'chrome', chromeOptions: {args: ['--no-sandbox']}},
   directConnect: true,
-  baseUrl: 'http://localhost:5432/src',
+  baseUrl: 'http://localhost:5432/',
   framework: 'jasmine',
   getPageTimeout: 60 * 1000,
 };

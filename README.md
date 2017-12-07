@@ -17,7 +17,7 @@ Follow https://github.com/angular/angular/issues/19058 for updates.
 # Install packages, uses hermetic version of node and yarn
 $ bazel run @yarn//:yarn
 # Start up the devserver in watch mode
-$ ./node_modules/.bin/ibazel run :devserver
+$ ./node_modules/.bin/ibazel run src:devserver
 # Open the URL printed on your terminal.
 # Make changes to sources, observe the development round-trip time
 ```
