@@ -17,9 +17,11 @@
         "@angular/compiler-cli": "5.1.0",
         "@bazel/ibazel": "~0.1.1",
         "@types/jasmine": "^2.8.2",
+        "clang-format": "^1.1.1",
         "concurrently": "^3.5.1",
         "protractor": "^5.2.1",
         "requirejs": "^2.3.5",
+        "shared-git-hooks": "^1.2.1",
         "typescript": "~2.5.x"
     },
     "scripts": {
