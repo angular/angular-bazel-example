@@ -1,8 +1,16 @@
+# Variables
+
+## IMPORTANT
+# If you change the `docker_image` version, also change the `cache_key` suffix and the version of
+# `com_github_bazelbuild_buildtools` in the `/WORKSPACE` file.
+var_1: &docker_image angular/ngcontainer:0.0.8
+var_2: &cache_key angular-{{ .Branch }}-{{ checksum "yarn.lock" }}-0.0.8
+
 # Settings common to each job
 anchor_1: &job_defaults
   working_directory: ~/ng
   docker:
-    - image: angular/ngcontainer:0.0.8
+    - image: *docker_image
 
 # After checkout, rebase on top of master.
 # Similar to travis behavior, but not quite the same.
@@ -28,13 +36,13 @@ jobs:
           <<: *post_checkout
 
       - restore_cache:
-          key: angular_bazel_example-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: *cache_key
       - run: bazel info release
       - run: bazel run @yarn//:yarn
       - run: bazel build --config=ci ...
 
       - save_cache:
-          key: angular_bazel_example-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: *cache_key
           paths:
             - "node_modules"
 workflows:
