@@ -1,17 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
-exports_files(["tsconfig.json"])
-
-filegroup(
-    name = "static_scripts",
-    srcs = [
-        "node_modules/@angular/common/bundles/common.umd.js",
-        "node_modules/@angular/core/bundles/core.umd.js",
-        "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
-        "node_modules/requirejs/require.js",
-        "node_modules/zone.js/dist/zone.min.js",
-    ],
-)
+exports_files([
+    "tsconfig.json",
+    "node_modules/zone.js/dist/zone.min.js",
+])
 
 # NOTE: this will move to node_modules/BUILD in a later release
 filegroup(
@@ -36,14 +28,11 @@ filegroup(
     ]]),
 )
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_devserver")
-
-ts_devserver(
-    name = "devserver",
-    serving_path = "/bundle.js",
-    static_files = [
-        "//src:static_files",
-        "//:static_scripts",
+filegroup(
+    name = "angular_bundles",
+    srcs = [
+        "//:node_modules/@angular/common/bundles/common.umd.js",
+        "//:node_modules/@angular/core/bundles/core.umd.js",
+        "//:node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
     ],
-    deps = ["//src"],
 )

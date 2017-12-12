@@ -48,9 +48,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@bazel/ibazel@~0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@bazel/ibazel/-/ibazel-0.1.1.tgz#f970c08b4e4efb0ab17e04ade3cc610554f33bed"
+"@bazel/ibazel@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@bazel/ibazel/-/ibazel-0.2.0.tgz#c119aef4344a789cef5e792caaee52264123e71c"
 
 "@bazel/typescript@0.3.2":
   version "0.3.2"
@@ -1367,10 +1367,6 @@ request@^2.78.0:
     tough-cookie "~2.3.3"
     tunnel-agent "^0.6.0"
     uuid "^3.1.0"
-
-requirejs@^2.3.5:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/requirejs/-/requirejs-2.3.5.tgz#617b9acbbcb336540ef4914d790323a8d4b861b0"
 
 resolve@^1.1.6:
   version "1.5.0"
