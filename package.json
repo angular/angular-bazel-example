@@ -17,15 +17,17 @@
         "@angular/compiler-cli": "5.1.0",
         "@bazel/ibazel": "~0.1.1",
         "@types/jasmine": "^2.8.2",
-        "clang-format": "^1.1.1",
+        "clang-format": "1.2.1",
         "concurrently": "^3.5.1",
+        "husky": "^0.14.3",
         "protractor": "^5.2.1",
         "requirejs": "^2.3.5",
-        "shared-git-hooks": "^1.2.1",
         "typescript": "~2.5.x"
     },
     "scripts": {
         "buildifier": "bazel build @com_github_bazelbuild_buildtools//buildifier && find . -type f \\( -name BUILD -or -name BUILD.bazel \\) ! -path \"./node_modules/*\" | xargs $(bazel info bazel-bin)/external/com_github_bazelbuild_buildtools/buildifier/buildifier",
+        "format": "git-clang-format",
+        "precommit": "check-clang-format \"yarn format\"",
         "postinstall": "concurrently \"webdriver-manager update\" \"ngc -p angular.tsconfig.json\"",
         "pretest": "bazel build test/...",
         "test": "concurrently \"bazel run :devserver\" protractor --kill-others --success first"
