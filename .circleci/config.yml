@@ -37,8 +37,9 @@ jobs:
 
       - restore_cache:
           key: *cache_key
+
       - run: bazel info release
-      - run: bazel run @yarn//:yarn
+      - run: bazel run --config=ci @yarn//:yarn
       - run: bazel build --config=ci ...
 
       - save_cache:
