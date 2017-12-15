@@ -41,7 +41,7 @@ is less than two seconds, even for a large application.
 
 ## Coming soon
 
-Karma testing rules are in-progress, should be available Q4 2017
-
 Production bundling with https://github.com/bazelbuild/rules_closure/ is
-underway, should be available Q4 2017
+underway, should be available Dec 2017 or Jan 2018
+
+Code-splitting and lazy loading are planned for Q1 2018
