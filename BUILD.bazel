@@ -25,30 +25,29 @@ filegroup(
     ]]),
 )
 
+ANGULAR_TESTING = [
+    "node_modules/@angular/*/bundles/*-testing.umd.js",
+    # We use AOT, so the compiler and the dynamic platform-browser should be
+    # visible only in tests
+    "node_modules/@angular/compiler/bundles/*.umd.js",
+    "node_modules/@angular/platform-browser-dynamic/bundles/*.umd.js",
+]
+
 # TODO(alexeagle): it's messy for users to need to specify the following
 # Angular dependency lists. It should live somewhere else.
 # See https://github.com/angular/angular/issues/21048
 
 filegroup(
     name = "angular_bundles",
-    srcs = [
-        "//:node_modules/@angular/common/bundles/common.umd.js",
-        "//:node_modules/@angular/core/bundles/core.umd.js",
-        "//:node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
-    ],
+    srcs = glob([
+        "node_modules/@angular/*/bundles/*.umd.js",
+    ], exclude = ANGULAR_TESTING),
 )
 
 filegroup(
     name = "angular_test_bundles",
     testonly = 1,
-    srcs = [
-        "//:node_modules/@angular/compiler/bundles/compiler.umd.js",
-        "//:node_modules/@angular/compiler/bundles/compiler-testing.umd.js",
-        "//:node_modules/@angular/core/bundles/core-testing.umd.js",
-        "//:node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
-        "//:node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js",
-        "//:node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js",
-    ],
+    srcs = glob(ANGULAR_TESTING),
 )
 
 filegroup(
