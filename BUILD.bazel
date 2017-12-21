@@ -39,9 +39,12 @@ ANGULAR_TESTING = [
 
 filegroup(
     name = "angular_bundles",
-    srcs = glob([
-        "node_modules/@angular/*/bundles/*.umd.js",
-    ], exclude = ANGULAR_TESTING),
+    srcs = glob(
+        [
+            "node_modules/@angular/*/bundles/*.umd.js",
+        ],
+        exclude = ANGULAR_TESTING,
+    ),
 )
 
 filegroup(
