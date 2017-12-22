@@ -7,7 +7,7 @@ filegroup(
     name = "node_modules",
     # NB: rxjs is not in this list, because we build it from sources using the
     # label @rxjs//:rxjs
-    srcs = glob(["/".join([
+    srcs = ["node_modules/lite-server/bin/lite-server"] + glob(["/".join([
         "node_modules",
         pkg,
         "**",
@@ -38,6 +38,11 @@ ANGULAR_TESTING = [
 # See https://github.com/angular/angular/issues/21048
 
 filegroup(
+    name = "special_rxjs",
+    srcs = glob(["node_modules/rxjs/**/*.js"]),
+)
+
+filegroup(
     name = "angular_bundles",
     srcs = glob(
         [
@@ -62,5 +67,18 @@ filegroup(
         "//:node_modules/zone.js/dist/sync-test.js",
         "//:node_modules/zone.js/dist/proxy.min.js",
         "//:node_modules/zone.js/dist/jasmine-patch.js",
+    ],
+)
+
+filegroup(
+    name = "closure_angular_bundles",
+    # do not sort
+    srcs = [
+        "//:node_modules/@angular/core/package.json",
+        "//:node_modules/@angular/core/esm2015/core.js",
+        "//:node_modules/@angular/common/package.json",
+        "//:node_modules/@angular/common/esm2015/common.js",
+        "//:node_modules/@angular/platform-browser/package.json",
+        "//:node_modules/@angular/platform-browser/esm2015/platform-browser.js",
     ],
 )

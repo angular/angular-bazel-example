@@ -31,3 +31,33 @@ ts_devserver(
     ],
     deps = ["//src"],
 )
+
+load("@build_bazel_rules_typescript//internal:build_defs.bzl", "closure_ts_binary")
+
+closure_ts_binary(
+    name = "bundle",
+    deps = [
+        "//:special_rxjs",
+        "//:closure_angular_bundles",
+        "//src",
+        ],
+    defs = [
+        "--dependency_mode=STRICT",
+        "--entry_point=./bazel-out/k8-fastbuild/bin/src/bundle_reroot_prod_files.prod/node_modules/angular_bazel_example/src/main.js"
+    ],
+
+)
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+nodejs_binary(
+    name = "prodserver",
+    entry_point = "angular_bazel_example_prod_deps/node_modules/lite-server/bin/lite-server",
+    templated_args = ["--baseDir=src"],
+    node_modules = "@angular_bazel_example_prod_deps//:node_modules",
+    data = [
+        ":zone.min.js",
+        ":index.html",
+        ":bundle.js",
+    ],
+)
