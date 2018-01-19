@@ -4,33 +4,38 @@
     "description": "Demo of bazel rules for angular",
     "license": "Apache 2.0",
     "dependencies": {
-        "@angular/animations": "5.1.3",
-        "@angular/common": "5.1.3",
-        "@angular/core": "5.1.3",
-        "@angular/platform-browser": "5.1.3",
+        "@angular/animations": "5.2.0",
+        "@angular/common": "5.2.0",
+        "@angular/core": "5.2.0",
+        "@angular/platform-browser": "5.2.0",
         "rxjs": "5.5.6",
         "zone.js": "0.8.20"
     },
     "devDependencies": {
-        "@angular/bazel": "5.1.3",
-        "@angular/compiler": "5.1.3",
-        "@angular/compiler-cli": "5.1.3",
-        "@angular/platform-browser-dynamic": "5.1.3",
+        "@angular/bazel": "5.2.0",
+        "@angular/compiler": "5.2.0",
+        "@angular/compiler-cli": "5.2.0",
+        "@angular/platform-browser-dynamic": "5.2.0",
         "@bazel/ibazel": "0.3.1",
         "@types/jasmine": "2.8.4",
         "clang-format": "1.2.2",
         "concurrently": "3.5.1",
         "husky": "0.14.3",
+        "lite-server": "^2.3.0",
         "protractor": "5.2.2",
         "typescript": "2.6.2"
     },
     "scripts": {
-        "prebuildifier": "bazel build @com_github_bazelbuild_buildtools//buildifier",
-        "buildifier": "find . -type f \\( -name BUILD -or -name BUILD.bazel \\) ! -path \"./node_modules/*\" | xargs $(bazel info bazel-bin)/external/com_github_bazelbuild_buildtools/buildifier/buildifier",
-        "format": "git-clang-format",
-        "precommit": "check-clang-format \"yarn format\"",
         "postinstall": "concurrently \"webdriver-manager update\" \"ngc -p angular.tsconfig.json\"",
-        "pretest": "bazel build test/...",
-        "test": "concurrently \"bazel run //src:devserver\" protractor --kill-others --success first"
+
+        "serve": "ibazel run //src:devserver",
+        "pree2e": "bazel build test/...",
+        "e2e": "concurrently \"bazel run //src:prodserver\" protractor --kill-others --success first",
+
+        "prebuildifier": "bazel build @com_github_bazelbuild_buildtools//buildifier",
+        "buildifier": "note: working around https://github.com/alexeagle/angular-bazel-example/issues/60",
+        "buildifier": "find . -type f \\( -name BUILD -or -name BUILD.bazel \\) ! -path \"./node_modules/*\" | xargs $(bazel info bazel-bin)/external/com_github_bazelbuild_buildtools/buildifier/*/buildifier",
+        "format": "git-clang-format",
+        "precommit": "check-clang-format \"yarn format\""
     }
 }

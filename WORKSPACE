@@ -3,21 +3,26 @@ workspace(name = "angular_bazel_example")
 git_repository(
     name = "build_bazel_rules_nodejs",
     remote = "https://github.com/bazelbuild/rules_nodejs.git",
-    tag = "0.3.1",
+    commit = "c96acafb9df26e44ecc59268a5b3cc9ebafb1d87",
 )
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
+
 node_repositories(package_json = ["//:package.json"])
 
 git_repository(
     name = "build_bazel_rules_typescript",
     remote = "https://github.com/bazelbuild/rules_typescript.git",
-    tag = "0.7.1",
+    tag = "b94f18bcdbf529615b57bf24de773758c33d85fc",
 )
 
 load("@build_bazel_rules_typescript//:setup.bzl", "ts_setup_workspace")
 
 ts_setup_workspace()
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_setup_workspace")
+
+nodejs_setup_workspace()
 
 local_repository(
     name = "angular",
@@ -51,7 +56,6 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_go/releases/download/0.9.0/rules_go-0.9.0.tar.gz",
     sha256 = "4d8d6244320dd751590f9100cf39fd7a4b75cd901e1f3ffdfd6f048328883695",
 )
-
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 

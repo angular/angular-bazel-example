@@ -22,7 +22,9 @@ filegroup(
         "*.js",
         "*.json",
         "*.d.ts",
-    ]]),
+    ]] + [
+        "node_modules/lite-server/**",
+    ]),
 )
 
 ANGULAR_TESTING = [

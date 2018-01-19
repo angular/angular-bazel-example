@@ -24,10 +24,29 @@ ts_devserver(
     name = "devserver",
     entry_module = "angular_bazel_example/src/main",
     scripts = ["//:angular_bundles"],
-    serving_path = "/bundle.js",
+    serving_path = "/bundle.min.js",
     static_files = [
         ":zone.js",
         "index.html",
     ],
     deps = ["//src"],
+)
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle", "nodejs_binary")
+
+rollup_bundle(
+    name = "bundle",
+    entry_point = "src/main",
+    deps = ["//src"],
+)
+
+nodejs_binary(
+    name = "prodserver",
+    args = ["--baseDir=\"src\""],
+    data = [
+        "index.html",
+        ":bundle",
+        ":zone.js",
+    ],
+    entry_point = "lite-server/bin/lite-server",
 )
