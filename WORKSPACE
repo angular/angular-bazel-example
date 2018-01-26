@@ -3,7 +3,7 @@ workspace(name = "angular_bazel_example")
 git_repository(
     name = "build_bazel_rules_nodejs",
     remote = "https://github.com/bazelbuild/rules_nodejs.git",
-    commit = "c96acafb9df26e44ecc59268a5b3cc9ebafb1d87",
+    commit = "230d39a391226f51c03448f91eb61370e2e58c42",
 )
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
@@ -13,16 +13,12 @@ node_repositories(package_json = ["//:package.json"])
 git_repository(
     name = "build_bazel_rules_typescript",
     remote = "https://github.com/bazelbuild/rules_typescript.git",
-    tag = "b94f18bcdbf529615b57bf24de773758c33d85fc",
+    commit = "100497d3c8c5e6432455833b1fdd1b3ca0df9dd1",
 )
 
-load("@build_bazel_rules_typescript//:setup.bzl", "ts_setup_workspace")
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
 
 ts_setup_workspace()
-
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_setup_workspace")
-
-nodejs_setup_workspace()
 
 local_repository(
     name = "angular",

@@ -4,24 +4,25 @@
     "description": "Demo of bazel rules for angular",
     "license": "Apache 2.0",
     "dependencies": {
-        "@angular/animations": "5.2.0",
-        "@angular/common": "5.2.0",
-        "@angular/core": "5.2.0",
-        "@angular/platform-browser": "5.2.0",
+        "@angular/animations": "5.2.2",
+        "@angular/common": "5.2.2",
+        "@angular/core": "5.2.2",
+        "@angular/platform-browser": "5.2.2",
         "rxjs": "5.5.6",
         "zone.js": "0.8.20"
     },
     "devDependencies": {
-        "@angular/bazel": "5.2.0",
-        "@angular/compiler": "5.2.0",
-        "@angular/compiler-cli": "5.2.0",
-        "@angular/platform-browser-dynamic": "5.2.0",
+        "@angular/bazel": "5.2.2",
+        "@angular/compiler": "5.2.2",
+        "@angular/compiler-cli": "5.2.2",
+        "@angular/platform-browser-dynamic": "5.2.2",
+        "@bazel/benchmark-runner": "0.1.0",
         "@bazel/ibazel": "0.3.1",
         "@types/jasmine": "2.8.4",
         "clang-format": "1.2.2",
         "concurrently": "3.5.1",
+        "http-server": "0.11.1",
         "husky": "0.14.3",
-        "lite-server": "^2.3.0",
         "protractor": "5.2.2",
         "typescript": "2.6.2"
     },
@@ -30,7 +31,7 @@
 
         "serve": "ibazel run //src:devserver",
         "pree2e": "bazel build test/...",
-        "e2e": "concurrently \"bazel run //src:prodserver\" protractor --kill-others --success first",
+        "e2e": "concurrently \"bazel run //src:prodserver\" \"while ! nc -z 127.0.0.1 8080; do sleep 1; done && protractor\" --kill-others --success first",
 
         "prebuildifier": "bazel build @com_github_bazelbuild_buildtools//buildifier",
         "buildifier": "note: working around https://github.com/alexeagle/angular-bazel-example/issues/60",

@@ -42,11 +42,11 @@ rollup_bundle(
 
 nodejs_binary(
     name = "prodserver",
-    args = ["--baseDir=\"src\""],
+    args = ["./src"],
     data = [
         "index.html",
         ":bundle",
         ":zone.js",
     ],
-    entry_point = "lite-server/bin/lite-server",
+    entry_point = "http-server/bin/http-server",
 )
