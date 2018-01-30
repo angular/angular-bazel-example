@@ -2,12 +2,11 @@ workspace(name = "angular_bazel_example")
 
 git_repository(
     name = "build_bazel_rules_nodejs",
-    remote = "https://github.com/bazelbuild/rules_nodejs.git",
-    tag = "0.4.0",
+    remote = "https://github.com/alexeagle/rules_nodejs.git",
+    commit = "605e3328f5c89af2233ecc7a62c3afb38187ca3d",
 )
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
-
+load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "npm_install")
 node_repositories(package_json = ["//:package.json"])
 
 git_repository(
@@ -58,3 +57,9 @@ load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_too
 go_rules_dependencies()
 
 go_register_toolchains()
+
+git_repository(
+    name = "angular_devkit",
+    remote = "https://github.com/alexeagle/devkit.git",
+    commit = "95d0a56371de97d9fefbb750736775373f315af2",
+)
