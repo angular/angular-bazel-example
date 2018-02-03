@@ -4,9 +4,9 @@ load("@angular//:index.bzl", "ng_module")
 
 ng_module(
     name = "src",
-    srcs = glob(["*.ts"]),
+    srcs = glob(["**/*.ts"]),
     tsconfig = ":tsconfig.json",
-    deps = ["//src/hello-world"],
+    deps = ["@rxjs"],
 )
 
 # Needed because the devserver only loads static files that appear under this
