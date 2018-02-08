@@ -7,7 +7,7 @@ import {msg} from '../lib/file';
     <div>Hello {{ name }}</div>
     <input type="text" [value]="name" (input)="name = $event.target.value"/>
   `,
-  styleUrls: ['./hello-world-styles.css']
+  styleUrls: ['../hello-world-styles.css']
 })
 export class HelloWorldComponent {
   name: string = msg;

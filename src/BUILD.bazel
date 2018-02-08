@@ -1,10 +1,20 @@
 package(default_visibility = ["//visibility:public"])
-
+load("@io_bazel_rules_sass//sass:sass.bzl", "sass_binary")
 load("@angular//:index.bzl", "ng_module")
+
+sass_binary(
+    name = "hello-world-styles",
+    src = "hello-world/hello-world.component.scss",
+    deps = [
+        "//src/shared:colors",
+        "//src/shared:fonts",
+    ],
+)
 
 ng_module(
     name = "src",
-    srcs = glob(["**/*.ts"]),
+    srcs = glob(["**/*.ts"], exclude=["**/*.spec.ts"]),
+    assets = ["hello-world-styles"],
     tsconfig = ":tsconfig.json",
     deps = ["@rxjs"],
 )
