@@ -9,6 +9,16 @@ workspace(name = "angular_bazel_example")
 
 
 ####################################
+# The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
+http_archive(
+    name = "com_github_bazelbuild_buildtools",
+    # Note, this commit matches the version of buildifier in angular/ngcontainer
+    url = "https://github.com/bazelbuild/buildtools/archive/b3b620e8bcff18ed3378cd3f35ebeb7016d71f71.zip",
+    sha256 = "4d8d6244320dd751590f9100cf39fd7a4b75cd901e1f3ffdfd6f048328883695",
+)
+
+
+####################################
 # Fetch and install the NodeJS rules
 http_archive(
     name = "build_bazel_rules_nodejs",
@@ -73,14 +83,4 @@ local_repository(
 local_repository(
     name = "rxjs",
     path = "node_modules/rxjs/src",
-)
-
-
-####################################
-# The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
-git_repository(
-    name = "com_github_bazelbuild_buildtools",
-    remote = "https://github.com/bazelbuild/buildtools.git",
-    # Note, this commit matches the version of buildifier in angular/ngcontainer
-    commit = "b3b620e8bcff18ed3378cd3f35ebeb7016d71f71",
 )
