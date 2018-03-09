@@ -25,18 +25,25 @@ you run the first build.
 
 Also add `ibazel` to your `$PATH`:
 
-`yarn global add @bazel/ibazel`
+```
+yarn global add @bazel/ibazel
+```
+
+or
+
+```
+npm install -g @bazel/ibazel
+```
 
 ## Setup
 
 Before building the app, we install packages, just as with any npm-based development workflow.
-However, to get the same version of node
-and yarn as co-workers and our continuous integration, let's have Bazel run the
+However, to get the same version of the toolchain as co-workers and our continuous integration, let's have Bazel run the
 package manager using a pinned version it manages. You should not even need
 node, npm, or yarn installed on a machine where you develop with Bazel.
 
 ```bash
-$ bazel run @yarn//:yarn
+$ bazel run :install
 ```
 
 ## Development
@@ -92,4 +99,4 @@ $ yarn e2e
 ## Coming soon
 
 - Protractor bazel rule
-- Code-splitting and lazy loading (planned for Q1 2018)
+- Code-splitting and lazy loading (planned for Q2/Q3 2018)
