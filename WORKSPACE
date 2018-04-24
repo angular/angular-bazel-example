@@ -28,10 +28,11 @@ http_archive(
     sha256 = "e9bc013417272b17f302dc169ad597f05561bb277451f010043f4da493417607",
 )
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
+load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
 node_repositories(package_json = ["//:package.json"])
 
+yarn_install(name = "sass_runtime_deps", package_json="//tools/sass:package.json", yarn_lock = "//tools/sass:yarn.lock")
 
 ####################################
 # Fetch and install the Sass rules
