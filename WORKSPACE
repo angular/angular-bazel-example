@@ -50,9 +50,9 @@ sass_repositories()
 # Fetch and install the TypeScript rules
 http_archive(
     name = "build_bazel_rules_typescript",
-    url = "https://github.com/bazelbuild/rules_typescript/archive/4a9e611ab03af41c957a420fb3840f84f173d64c.zip",
-    strip_prefix = "rules_typescript-4a9e611ab03af41c957a420fb3840f84f173d64c",
-    sha256 = "4162d10f3785c6114f08fa35b50430c5f976b8ef945071b7b81206add7fde8e2",
+    url = "https://github.com/bazelbuild/rules_typescript/archive/0.12.3.zip",
+    strip_prefix = "rules_typescript-0.12.3",
+    sha256 = "967068c3540f59407716fbeb49949c1600dbf387faeeab3089085784dd21f60c",
 )
 
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
