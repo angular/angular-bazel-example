@@ -49,16 +49,10 @@ ANGULAR_TESTING = [
     "node_modules/@angular/platform-browser-dynamic/bundles/*.umd.js",
 ]
 
-# TODO(alexeagle): it's messy for users to need to specify the following
-# Angular dependency lists. It should live somewhere else.
-# See https://github.com/angular/angular/issues/21048
-
 filegroup(
     name = "angular_bundles",
     srcs = glob(
-        [
-            "node_modules/@angular/*/bundles/*.umd.js",
-        ],
+        ["node_modules/@angular/*/bundles/*.umd.js"],
         exclude = ANGULAR_TESTING,
     ),
 )
