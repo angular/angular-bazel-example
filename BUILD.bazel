@@ -2,7 +2,7 @@ package(default_visibility = ["//visibility:public"])
 
 alias(
     name = "install",
-    actual = "@yarn//:yarn",
+    actual = "@nodejs//:yarn",
 )
 
 exports_files(["tsconfig.json"])
