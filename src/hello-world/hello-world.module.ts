@@ -6,4 +6,5 @@ import {HelloWorldComponent} from './hello-world.component';
   declarations: [HelloWorldComponent],
   exports: [HelloWorldComponent],
 })
-export class HelloWorldModule {}
+export class HelloWorldModule {
+}

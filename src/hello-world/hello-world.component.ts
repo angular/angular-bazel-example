@@ -3,10 +3,7 @@ import {msg} from '../lib/file';
 
 @Component({
   selector: 'hello-world-app',
-  template: `
-    <div>Hello {{ name }}</div>
-    <input type="text" [value]="name" (input)="name = $event.target.value"/>
-  `,
+  templateUrl: 'hello-world.component.html',
   styleUrls: ['./hello-world-styles.css']
 })
 export class HelloWorldComponent {

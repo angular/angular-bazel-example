@@ -27,17 +27,18 @@ filegroup(
         ext,
     ]) for pkg in [
         "@angular",
+        "@ngrx",
+        "@types",
         "protractor",
         "tsickle",
         "tsutils",
         "typescript",
-        "@types",
     ] for ext in [
         "*.js",
         "*.json",
         "*.d.ts",
     ]] + [
-        "node_modules/http-server/**",
+        "node_modules/history-server/**",
     ]),
 )
 
