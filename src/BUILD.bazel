@@ -54,17 +54,13 @@ genrule(
     cmd = "cp $< $@",
 )
 
-nodejs_binary(
+load("//tools/history-server:index.bzl", "history_server")
+
+history_server(
     name = "prodserver",
-    args = [
-        "src",
-        "-p",
-        "5432",
-    ],
     data = [
         "index.html",
         ":bundle",
         ":zonejs",
     ],
-    entry_point = "history-server/modules/cli.js",
 )
