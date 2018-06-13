@@ -14,18 +14,22 @@ workspace(name = "angular_bazel_example")
 # Allows Bazel to run tooling in Node.js
 http_archive(
     name = "build_bazel_rules_nodejs",
-    url = "https://github.com/bazelbuild/rules_nodejs/archive/0.9.1.zip",
-    strip_prefix = "rules_nodejs-0.9.1",
-    sha256 = "6139762b62b37c1fd171d7f22aa39566cb7dc2916f0f801d505a9aaf118c117f",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/archive/0.10.0.zip"],
+    strip_prefix = "rules_nodejs-0.10.0",
+    sha256 = "2f77623311da8b5009b1c7eade12de8e15fa3cd2adf9dfcc9f87cb2082b2211f",
 )
 
 # The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
+# This commit matches the version of buildifier in angular/ngcontainer
+# If you change this, also check if it matches the version in the angular/ngcontainer
+# version in /.circleci/config.yml
+BAZEL_BUILDTOOLS_VERSION = "82b21607e00913b16fe1c51bec80232d9d6de31c"
+
 http_archive(
     name = "com_github_bazelbuild_buildtools",
-    # Note, this commit matches the version of buildifier in angular/ngcontainer
-    url = "https://github.com/bazelbuild/buildtools/archive/b3b620e8bcff18ed3378cd3f35ebeb7016d71f71.zip",
-    strip_prefix = "buildtools-b3b620e8bcff18ed3378cd3f35ebeb7016d71f71",
-    sha256 = "dad19224258ed67cbdbae9b7befb785c3b966e5a33b04b3ce58ddb7824b97d73",
+    url = "https://github.com/bazelbuild/buildtools/archive/%s.zip" % BAZEL_BUILDTOOLS_VERSION,
+    strip_prefix = "buildtools-%s" % BAZEL_BUILDTOOLS_VERSION,
+    sha256 = "edb24c2f9c55b10a820ec74db0564415c0cf553fa55e9fc709a6332fb6685eff",
 )
 
 # Runs the TypeScript compiler
