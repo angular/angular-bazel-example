@@ -12,6 +12,8 @@ ng_module(
     deps = [
         "//src/hello-world",
         "//src/todos",
+        "@angular//packages/core",
+        "@angular//packages/router",
     ],
 )
 
@@ -21,16 +23,17 @@ ts_devserver(
     name = "devserver",
     additional_root_paths = [
         "angular_bazel_example/node_modules/zone.js/dist",
+        "angular_bazel_example/node_modules/tslib",
         "angular_bazel_example/node_modules/@ngrx/store/bundles",
     ],
     entry_module = "angular_bazel_example/src/main",
     scripts = [
         ":require.config.js",
-        "//:angular_bundles",
     ],
     serving_path = "/bundle.min.js",
     static_files = [
         "//:node_modules/zone.js/dist/zone.min.js",
+        "//:node_modules/tslib/tslib.js",
         "//:node_modules/@ngrx/store/bundles/store.umd.min.js",
         "index.html",
     ],

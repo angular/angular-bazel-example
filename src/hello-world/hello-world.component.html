@@ -2,4 +2,4 @@
 
 <div>Hello {{ name }}</div>
 
-<input type="text" [value]="name" (input)="name = $event.target.value"/>
+<input type="text" [(ngModel)]="name"/>

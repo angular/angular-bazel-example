@@ -20,10 +20,12 @@ ng_module(
         "todos.component.html",
         ":todos-styles",
     ],
-    tsconfig = "//src:tsconfig.json",
     deps = [
         "//src/lib",
         "//src/reducers",
+        "@angular//packages/common",
+        "@angular//packages/core",
+        "@angular//packages/forms",
         "@rxjs",
     ],
 )

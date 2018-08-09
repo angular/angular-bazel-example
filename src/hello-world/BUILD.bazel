@@ -20,9 +20,10 @@ ng_module(
         ":hello-world.component.html",
         ":hello-world-styles",
     ],
-    tsconfig = "//src:tsconfig.json",
     deps = [
         "//src/lib",
+        "@angular//packages/core",
+        "@angular//packages/forms",
         "@rxjs",
     ],
 )
@@ -31,19 +32,28 @@ ts_library(
     name = "test_lib",
     testonly = 1,
     srcs = glob(["*.spec.ts"]),
-    deps = [":hello-world"],
+    deps = [
+        ":hello-world",
+        "@angular//packages/core",
+        "@angular//packages/core/testing",
+        "@angular//packages/platform-browser",
+        "@angular//packages/platform-browser-dynamic/testing",
+    ],
 )
 
 ts_web_test_suite(
     name = "test",
-    bootstrap = ["//:node_modules/zone.js/dist/zone-testing-bundle.js"],
+    srcs = ["//:node_modules/tslib/tslib.js"],
+    # do not sort
+    bootstrap = [
+        "//:node_modules/zone.js/dist/zone-testing-bundle.js",
+        "//:node_modules/reflect-metadata/Reflect.js",
+    ],
     browsers = [
         "@io_bazel_rules_webtesting//browsers:chromium-local",
         "@io_bazel_rules_webtesting//browsers:firefox-local",
     ],
     deps = [
         ":test_lib",
-        "//:angular_bundles",
-        "//:angular_test_bundles",
     ],
 )

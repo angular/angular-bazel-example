@@ -14,9 +14,17 @@ workspace(name = "angular_bazel_example")
 # Allows Bazel to run tooling in Node.js
 http_archive(
     name = "build_bazel_rules_nodejs",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/archive/0.10.0.zip"],
-    strip_prefix = "rules_nodejs-0.10.0",
-    sha256 = "2f77623311da8b5009b1c7eade12de8e15fa3cd2adf9dfcc9f87cb2082b2211f",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/archive/0.11.3.zip"],
+    strip_prefix = "rules_nodejs-0.11.3",
+    sha256 = "e8842fa5f5e38f2c826167ff94323d4b5aabd13217cee867d971d6f860cfd730"
+)
+
+# build_bazel_rules_nodejs depends on skylib
+http_archive(
+    name = "bazel_skylib",
+    urls = ["https://github.com/bazelbuild/bazel-skylib/archive/0.3.1.zip"],
+    strip_prefix = "bazel-skylib-0.3.1",
+    sha256 = "95518adafc9a2b656667bbf517a952e54ce7f350779d0dd95133db4eb5c27fb1",
 )
 
 # The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
@@ -33,21 +41,32 @@ http_archive(
 )
 
 # Runs the TypeScript compiler
-http_archive(
+local_repository(
     name = "build_bazel_rules_typescript",
-    url = "https://github.com/bazelbuild/rules_typescript/archive/0.15.3.zip",
-    strip_prefix = "rules_typescript-0.15.3",
-    sha256 = "a2b26ac3fc13036011196063db1bf7f1eae81334449201dc28087ebfa3708c99",
+    path = "node_modules/@bazel/typescript",
+)
+
+# build_bazel_rules_typescript depends on io_bazel_skydoc
+http_archive(
+    name = "io_bazel_skydoc",
+    urls = ["https://github.com/bazelbuild/skydoc/archive/0ef7695c9d70084946a3e99b89ad5a99ede79580.zip"],
+    strip_prefix = "skydoc-0ef7695c9d70084946a3e99b89ad5a99ede79580",
+    sha256 = "491f9e142b870b18a0ec8eb3d66636eeceabe5f0c73025706c86f91a1a2acb4d",
 )
 
 # Used by the ts_web_test_suite rule to provision browsers
 http_archive(
     name = "io_bazel_rules_webtesting",
-    # Use a commit SHA because we need a release
-    # https://github.com/bazelbuild/rules_webtesting/issues/273
-    url = "https://github.com/bazelbuild/rules_webtesting/archive/bbfc846d98dacb0fb40dd9173acfe4070e3e0f62.zip",
-    strip_prefix = "rules_webtesting-bbfc846d98dacb0fb40dd9173acfe4070e3e0f62",
-    sha256 = "a79e2d681b7c9ddc51e7974ddb385b9ee2b389cdc823dd3e78e18936337e4c5a",
+    url = "https://github.com/bazelbuild/rules_webtesting/archive/0.2.1.zip",
+    strip_prefix = "rules_webtesting-0.2.1",
+    sha256 = "7d490aadff9b5262e5251fa69427ab2ffd1548422467cb9f9e1d110e2c36f0fa",
+)
+
+# bazel_gazelle is a transitive dep of rules_typescript and rules_webtesting
+http_archive(
+    name = "bazel_gazelle",
+    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.13.0/bazel-gazelle-0.13.0.tar.gz"],
+    sha256 = "bc653d3e058964a5a26dcad02b6c72d7d63e6bb88d94704990b908a1445b8758",
 )
 
 # Runs the Sass CSS preprocessor
@@ -65,13 +84,12 @@ http_archive(
     sha256 = "ba79c532ac400cefd1859cbc8a9829346aa69e3b99482cd5a54432092cbc3933",
 )
 
-####################################
-# Tell Bazel about some workspaces that were installed from npm.
-
 # The @angular repo contains rule for building Angular applications
-local_repository(
+http_archive(
     name = "angular",
-    path = "node_modules/@angular/bazel",
+    url = "https://github.com/angular/angular/archive/6.1.2.zip",
+    strip_prefix = "angular-6.1.2",
+    sha256 = "e7553542cebd1113069a92d97a464a2d2aa412242926686653b8cf0101935617",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
@@ -83,7 +101,7 @@ local_repository(
 ####################################
 # Load and install our dependencies downloaded above.
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "check_bazel_version", "node_repositories", "yarn_install")
+load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
 node_repositories(package_json = ["//:package.json"])
 
@@ -100,13 +118,24 @@ browser_repositories(
     firefox = True,
 )
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace", "check_rules_typescript_version")
 
 ts_setup_workspace()
+
+# 0.16.0: tsc_wrapped uses user's typescript version & check_rules_typescript_version
+check_rules_typescript_version("0.16.0")
 
 load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
 sass_repositories()
+
+#
+# Load and install our dependencies from local repositories
+#
+
+load("@angular//:index.bzl", "ng_setup_workspace")
+
+ng_setup_workspace()
 
 ####################################
 # Setup our local toolchain
