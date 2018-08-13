@@ -21,34 +21,25 @@ exports_files([
     "node_modules/zone.js/dist/zone-testing-bundle.js",
 ])
 
-# NOTE: this will move to node_modules/BUILD in a later release
 filegroup(
     name = "node_modules",
-    # NB: angular & rxjs are not in this list, because we build them from sources
-    srcs = glob(["/".join([
-        "node_modules",
-        pkg,
-        "**",
-        ext,
-    ]) for pkg in [
-        "@ngrx",
-        "@types",
-        "bytebuffer",
-        "protobufjs",
-        "protractor",
-        "reflect-metadata",
-        "tsickle",
-        "tslib",
-        "tsutils",
-        "typescript",
-        "zone.js",
-    ] for ext in [
-        "*.js",
-        "*.json",
-        "*.d.ts",
-    ]] + [
-        "node_modules/protractor/**",
-    ]) + ["@build_bazel_rules_typescript//:node_modules"],
+    srcs = glob(
+        [
+            # Include only .js, .json & .d.ts files to reduce the number of
+            # files in the //:node_modules filegroup
+            "node_modules/**/*.js",
+            "node_modules/**/*.json",
+            "node_modules/**/*.d.ts",
+            # All the files in the protractor package are necesssary
+            "node_modules/protractor/**",
+            # Also include all files in node_modules/.bin
+            "node_modules/.bin/*",
+        ],
+        exclude = [
+            # Exclude files with spaces which are illegal bazel labels
+            "node_modules/**/* *",
+        ],
+    ) + ["@build_bazel_rules_typescript//:node_modules"],
     # "@build_bazel_rules_typescript//:node_modules" is incluced
     # in `//:node_modules` so that npm dependencies that are hoisted to
     # node_modules/@bazel/typescript/node_modules because of conflicting

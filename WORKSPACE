@@ -103,7 +103,10 @@ local_repository(
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
-node_repositories(package_json = ["//:package.json"])
+node_repositories(
+    package_json = ["//:package.json"],
+    preserve_symlinks = True,
+)
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 
