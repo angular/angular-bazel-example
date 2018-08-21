@@ -25,6 +25,7 @@ ts_devserver(
         "angular_bazel_example/node_modules/zone.js/dist",
         "angular_bazel_example/node_modules/tslib",
         "angular_bazel_example/node_modules/@ngrx/store/bundles",
+        "angular_bazel_example/node_modules/google-protobuf",
     ],
     entry_module = "angular_bazel_example/src/main",
     scripts = [
@@ -35,6 +36,7 @@ ts_devserver(
         "//:node_modules/zone.js/dist/zone.min.js",
         "//:node_modules/tslib/tslib.js",
         "//:node_modules/@ngrx/store/bundles/store.umd.min.js",
+        "//:node_modules/google-protobuf/google-protobuf.js",
         "index.html",
     ],
     deps = ["//src"],

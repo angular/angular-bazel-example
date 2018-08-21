@@ -148,3 +148,12 @@ yarn_install(
     package_json = "//tools/history-server:package.json",
     yarn_lock = "//tools/history-server:yarn.lock",
 )
+
+git_repository(
+    name = "ts_protoc_gen",
+    remote = "https://github.com/Globegitter/ts-protoc-gen.git",
+    commit = "c41664a720b09ba5640aaeef31173ec4a3311601",
+)
+
+load("@ts_protoc_gen//:defs.bzl", "typescript_proto_dependencies")
+typescript_proto_dependencies()
