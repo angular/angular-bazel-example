@@ -40,9 +40,9 @@ http_archive(
 # The @angular repo contains rule for building Angular applications
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/6.1.2.zip",
-    strip_prefix = "angular-6.1.2",
-    sha256 = "e7553542cebd1113069a92d97a464a2d2aa412242926686653b8cf0101935617",
+    url = "https://github.com/angular/angular/archive/6.1.4.zip",
+    strip_prefix = "angular-6.1.4",
+    sha256 = "1ca7dd388d6dd62b0093f957e7e5ae24c801068610693bc93f97eabd1f3b21c6",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
