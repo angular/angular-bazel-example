@@ -1,8 +1,9 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+  async navigateTo() {
+    await browser.get('/');
+    return browser.waitForAngular();
   }
 
   async getParagraphText() {
