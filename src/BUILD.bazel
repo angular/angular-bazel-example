@@ -26,7 +26,7 @@ ts_devserver(
         "angular_bazel_example/node_modules/tslib",
         "angular_bazel_example/node_modules/@ngrx/store/bundles",
     ],
-    entry_module = "angular_bazel_example/src/main",
+    entry_module = "angular_bazel_example/src/main.dev",
     scripts = [
         ":require.config.js",
     ],
@@ -44,7 +44,11 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary", "rollup_bundle")
 
 rollup_bundle(
     name = "bundle",
-    entry_point = "src/main",
+    additional_entry_points = [
+        "src/hello-world/hello-world.module.ngfactory",
+        "src/todos/todos.module.ngfactory",
+    ],
+    entry_point = "src/main.prod",
     deps = ["//src"],
 )
 
@@ -57,6 +61,13 @@ genrule(
     cmd = "cp $< $@",
 )
 
+genrule(
+    name = "systemjs",
+    srcs = ["//:node_modules/systemjs/dist/system.js"],
+    outs = ["system.js"],
+    cmd = "cp $< $@",
+)
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "history_server")
 
 history_server(
@@ -64,6 +75,7 @@ history_server(
     data = [
         "index.html",
         ":bundle",
+        ":systemjs",
         ":zonejs",
     ],
 )

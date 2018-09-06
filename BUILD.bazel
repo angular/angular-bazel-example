@@ -16,7 +16,8 @@ alias(
 # This export allows targets in other packages to reference files that live
 # in this package.
 exports_files([
-    # Let devserver and testing targets reference zone.js distro
+    # Let devserver and testing targets reference systemjs & zone.js distros
+    "node_modules/systemjs/dist/system.js",
     "node_modules/zone.js/dist/zone.min.js",
     "node_modules/zone.js/dist/zone-testing-bundle.js",
 ])

@@ -74,6 +74,10 @@ jobs:
           path: dist/bin/src/bundle.min.js
           destination: bundle.min.js
 
+      - store_artifacts:
+          path: dist/bin/src/bundle.cs.min
+          destination: bundle.cs.min
+
       # If we get this far, save the node_modules directory for use next time.
       - save_cache:
           key: *cache_key

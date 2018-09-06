@@ -24,6 +24,7 @@ ng_module(
         "//src/lib",
         "@angular//packages/core",
         "@angular//packages/forms",
+        "@angular//packages/router",
         "@rxjs",
     ],
 )

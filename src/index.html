@@ -10,13 +10,19 @@
     <app-component></app-component>
 
     <!--
-      We load zone.js outside the bundle. That's because it's a "prollyfill"
+      We load zone.js outside the bundle. That's because it's a "pollyfill"
       which speculates that such features might be available in a browser.
       Also it's tricky to configure dead code elimination to understand that
       zone.js is used, given that we don't have any import statement that
       imports from it.
     -->
     <script src="/zone.min.js"></script>
+
+    <!--
+      We load system.js here as it is required in prodmode for code-splitting
+      support. This script will fail to load in devmode.
+    -->
+    <script src="/system.js"></script>
 
     <!--
       For development mode, this script will be bundled on-the-fly by
