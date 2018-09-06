@@ -112,6 +112,16 @@ bundlers can be integrated with Bazel.
 $ ibazel run src:prodserver
 ```
 
-## Coming soon
+### Code splitting
 
-- Code-splitting and lazy loading (planned for Q2/Q3 2018)
+The production bundle is code split and the `/` and `/todos` routes
+are lazy loaded. Code splitting is handled by the rollup_bundle rule
+which now supports the new code splitting feature in rollup.
+
+Note: code splitting is _not_ supported in development mode yet so the 
+`//src:devserver` target does not serve a code split bundle. For this
+reason, development and production use different main entry points
+(`main.dev.ts` and `main.prod.ts`) and different root modules
+(`app.module.dev.ts` and `app.module.prod.ts`). The only difference in
+these entry points and modules is how the routes are setup, with production
+setting up lazy loaded routes and development not.
