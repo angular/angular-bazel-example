@@ -23,9 +23,9 @@ http_archive(
 # Specific commit needed for rollup code-splitting
 http_archive(
     name = "build_bazel_rules_nodejs",
-    url = "https://github.com/bazelbuild/rules_nodejs/archive/0.12.3.zip",
-    strip_prefix = "rules_nodejs-0.12.3",
-    sha256 = "376e2ab5c4af44be5640b7805af43fd08b1c0b6aeb365001d6776b91d6dac197",
+    url = "https://github.com/bazelbuild/rules_nodejs/archive/0.12.4.zip",
+    strip_prefix = "rules_nodejs-0.12.4",
+    sha256 = "c482700e032b4df60425cb9a6f8f28152fb1c4c947a9d61e6132fc59ce332b16",
 )
 
 # Runs the TypeScript compiler

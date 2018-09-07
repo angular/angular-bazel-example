@@ -1,32 +1,29 @@
 
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule, Routes} from '@angular/router';
-import {StoreModule} from '@ngrx/store';
+import {NgModule, NgModuleFactoryLoader} from '@angular/core';
 
+import * as routes from './app-routing.module';
 import {AppComponent} from './app.component';
-import {AppModule} from './app.module';
+import {AppModuleProd} from './app.module.prod';
 import {HelloWorldModuleNgFactory} from './hello-world/hello-world.module.ngfactory';
-import {todoReducer} from './reducers/reducers';
 import {TodosModuleNgFactory} from './todos/todos.module.ngfactory';
 
-export function helloWorldModule(): any {
-  return HelloWorldModuleNgFactory;
+export class MyLoader extends NgModuleFactoryLoader {
+  load(id: string) {
+    switch (id) {
+      case routes.helloModuleId:
+        return Promise.resolve(HelloWorldModuleNgFactory);
+      case routes.todosModuleId:
+        return Promise.resolve(TodosModuleNgFactory);
+      default:
+        throw new Error(`Unrecognized route id ${id}`);
+    }
+  }
 }
-export function todosModule(): any {
-  return TodosModuleNgFactory;
-}
-
-export const appRoutes: Routes = [
-  {path: '', pathMatch: 'full', loadChildren: helloWorldModule},
-  {path: 'todos', pathMatch: 'full', loadChildren: todosModule},
-];
 
 @NgModule({
-  imports: [
-    AppModule, BrowserModule, RouterModule.forRoot(appRoutes), StoreModule.forRoot({todoReducer})
-  ],
+  imports: [AppModuleProd],
   bootstrap: [AppComponent],
+  providers: [{provide: NgModuleFactoryLoader, useClass: MyLoader}]
 })
 export class AppModuleDev {
 }

@@ -25,10 +25,13 @@
         "typescript": "2.9.2"
     },
     "scripts": {
-        "postinstall": "ngc -p postinstall.tsconfig.json",
         "serve": "ibazel run //src:devserver",
+        "serve-prod": "bazel run //src:prodserver",
+        "e2e": "bazel test //e2e:all",
+        "test": "bazel test //src/...",
+        "postinstall": "ngc -p postinstall.tsconfig.json",
         "prebuildifier": "bazel build @com_github_bazelbuild_buildtools//buildifier",
-        "buildifier": "note: working around https://github.com/alexeagle/angular-bazel-example/issues/60",
+        "//": "note: working around https://github.com/alexeagle/angular-bazel-example/issues/60",
         "buildifier": "find . -type f \\( -name BUILD -or -name BUILD.bazel \\) ! -path \"./node_modules/*\" | xargs $(bazel info bazel-bin)/external/com_github_bazelbuild_buildtools/buildifier/*/buildifier",
         "format": "git-clang-format",
         "precommit": "check-clang-format \"yarn format\""

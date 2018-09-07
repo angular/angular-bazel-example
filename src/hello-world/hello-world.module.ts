@@ -6,7 +6,9 @@ import {HelloWorldComponent} from './hello-world.component';
 
 @NgModule({
   declarations: [HelloWorldComponent],
-  imports: [FormsModule, RouterModule, RouterModule.forChild([{path: '', component: HelloWorldComponent}])],
+  imports: [
+    FormsModule, RouterModule, RouterModule.forChild([{path: '', component: HelloWorldComponent}])
+  ],
   exports: [HelloWorldComponent],
 })
 export class HelloWorldModule {
