@@ -13,5 +13,5 @@ import {todoReducer} from './reducers/reducers';
   exports: [AppComponent],
   bootstrap: [AppComponent],
 })
-export class AppModuleProd {
+export class AppModule {
 }

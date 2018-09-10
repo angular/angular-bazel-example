@@ -48,7 +48,7 @@ rollup_bundle(
         "src/hello-world/hello-world.module.ngfactory",
         "src/todos/todos.module.ngfactory",
     ],
-    entry_point = "src/main.prod",
+    entry_point = "src/main",
     deps = ["//src"],
 )
 

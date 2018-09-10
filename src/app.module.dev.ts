@@ -3,7 +3,7 @@ import {NgModule, NgModuleFactoryLoader} from '@angular/core';
 
 import * as routes from './app-routing.module';
 import {AppComponent} from './app.component';
-import {AppModuleProd} from './app.module.prod';
+import {AppModule} from './app.module';
 import {HelloWorldModuleNgFactory} from './hello-world/hello-world.module.ngfactory';
 import {TodosModuleNgFactory} from './todos/todos.module.ngfactory';
 
@@ -21,7 +21,7 @@ export class MyLoader extends NgModuleFactoryLoader {
 }
 
 @NgModule({
-  imports: [AppModuleProd],
+  imports: [AppModule],
   bootstrap: [AppComponent],
   providers: [{provide: NgModuleFactoryLoader, useClass: MyLoader}]
 })
