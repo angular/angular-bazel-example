@@ -15,8 +15,3 @@ test --test_output=errors
 
 # Use the Angular 6 compiler
 build --define=compile=legacy
-
-# Allow the e2e test to be quite flaky, failing as much as 4 times in a row.
-# The downside is that actual breakages take much longer to be reported.
-# TODO(gregmagolan): make it less flaky
-test --flaky_test_attempts=5

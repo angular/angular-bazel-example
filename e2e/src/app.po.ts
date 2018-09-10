@@ -6,11 +6,17 @@ export class AppPage {
     return browser.waitForAngular();
   }
 
-  async getParagraphText() {
-    return element(by.css('div')).getText();
+  async waitForElement(el, timeout = 10000) {
+    await browser.wait(() => el.isPresent(), timeout);
+    await browser.wait(() => el.isDisplayed(), timeout);
+    return el;
   }
 
-  typeInInput(s: string) {
-    element(by.css('input')).sendKeys(s);
+  async getParagraphText() {
+    return (await this.waitForElement(element(by.css('div')))).getText();
+  }
+
+  async typeInInput(s: string) {
+    return (await this.waitForElement(element(by.css('input')))).sendKeys(s);
   }
 }

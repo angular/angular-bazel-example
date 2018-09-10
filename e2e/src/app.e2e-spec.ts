@@ -10,7 +10,7 @@ describe('angular example application', () => {
   it('should display: Hello World!', async () => {
     await page.navigateTo();
     expect(await page.getParagraphText()).toEqual(`Hello World`);
-    page.typeInInput('!');
+    await page.typeInInput('!');
     expect(await page.getParagraphText()).toEqual(`Hello World!`);
   });
 });
