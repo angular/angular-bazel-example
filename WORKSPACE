@@ -20,7 +20,7 @@ http_archive(
     sha256 = "edb24c2f9c55b10a820ec74db0564415c0cf553fa55e9fc709a6332fb6685eff",
 )
 
-# Specific commit needed for rollup code-splitting
+# Provides nodejs rules like rollup_bundle
 http_archive(
     name = "build_bazel_rules_nodejs",
     url = "https://github.com/bazelbuild/rules_nodejs/archive/0.12.4.zip",
@@ -86,6 +86,7 @@ load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace", "check_ru
 
 ts_setup_workspace()
 
+# Enforce that the version of @bazel/typescript installed by npm is compatible with the rules.
 # 0.16.0: tsc_wrapped uses user's typescript version & check_rules_typescript_version
 check_rules_typescript_version("0.16.0")
 
