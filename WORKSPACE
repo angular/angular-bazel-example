@@ -20,14 +20,6 @@ http_archive(
     sha256 = "edb24c2f9c55b10a820ec74db0564415c0cf553fa55e9fc709a6332fb6685eff",
 )
 
-# Provides nodejs rules like rollup_bundle
-http_archive(
-    name = "build_bazel_rules_nodejs",
-    url = "https://github.com/bazelbuild/rules_nodejs/archive/0.12.4.zip",
-    strip_prefix = "rules_nodejs-0.12.4",
-    sha256 = "c482700e032b4df60425cb9a6f8f28152fb1c4c947a9d61e6132fc59ce332b16",
-)
-
 # Runs the TypeScript compiler
 local_repository(
     name = "build_bazel_rules_typescript",
@@ -46,11 +38,12 @@ http_archive(
 )
 
 # The @angular repo contains rule for building Angular applications
+# TODO(gregmagolan): updated to angular/angular 6.1.8 once released
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/6.1.7.zip",
-    strip_prefix = "angular-6.1.7",
-    sha256 = "bd6bd47b8b65254da78158b354c4b0ffc18b9591bcc82863e359fc8d3e1cc609",
+    url = "https://github.com/angular/angular/archive/110c81f3594df533f1c07b4d291901f867382459.zip",
+    strip_prefix = "angular-110c81f3594df533f1c07b4d291901f867382459",
+    sha256 = "12175f8d3f5ba19e5d90a9ee1a95b8f858bdce88ea419824220994ce4f682eb2",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
@@ -67,6 +60,8 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install"
 node_repositories(
     package_json = ["//:package.json"],
     preserve_symlinks = True,
+    node_version = "10.9.0",
+    yarn_version = "1.9.2",
 )
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")

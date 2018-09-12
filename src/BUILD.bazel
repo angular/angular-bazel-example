@@ -62,6 +62,7 @@ rollup_bundle(
         "src/todos/todos.module.ngfactory",
     ],
     entry_point = "src/main",
+    node_modules = "//:node_modules",
     deps = ["//src"],
 )
 
