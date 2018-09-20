@@ -1,0 +1,3 @@
+steps:
+  - label: Lint
+    command: yarn && yarn buildifier -mode=check
