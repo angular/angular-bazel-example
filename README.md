@@ -15,21 +15,7 @@ Follow https://github.com/angular/angular/issues/19058 for updates.
 
 ## Installation
 
-Install Bazel from the distribution, see [install] instructions.
-On Mac, if you have Homebrew installed you can
-
-```bash
-brew tap bazelbuild/tap
-brew tap-pin bazelbuild/tap
-brew install bazel
-```
-
-Bazel will install a hermetic version of Node, npm, and Yarn when
-you run the first build.
-
-[install]: https://bazel.build/versions/master/docs/install.html
-
-Also add `ibazel` to your `$PATH`:
+Add `ibazel` to your `$PATH`:
 
 ```
 yarn global add @bazel/ibazel
@@ -49,7 +35,7 @@ Before building the app, we install packages, just as with any npm-based develop
 $ yarn install
 ```
 
-or 
+or
 
 ```bash
 $ npm install
@@ -120,7 +106,7 @@ The production bundle is code split and the `/` and `/todos` routes
 are lazy loaded. Code splitting is handled by the rollup_bundle rule
 which now supports the new code splitting feature in rollup.
 
-Note: code splitting is _not_ supported in development mode yet so the 
+Note: code splitting is _not_ supported in development mode yet so the
 `//src:devserver` target does not serve a code split bundle. For this
 reason, development and production use different main entry points
 (`main.dev.ts` and `main.ts`) and different root modules
