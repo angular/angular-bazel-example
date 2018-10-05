@@ -7,6 +7,14 @@
 # imports also make sense when referencing the published package.
 workspace(name = "angular_bazel_example")
 
+http_archive(
+    name = "build_bazel_rules_nodejs",
+    # pick up fixes for yarn cache and history-server on windows
+    url = "https://github.com/alexeagle/rules_nodejs/archive/f2cd136126725a0df8e9ee49f33b45d07302da20.zip",
+    strip_prefix = "rules_nodejs-f2cd136126725a0df8e9ee49f33b45d07302da20",
+    sha256 = "54261398fb3bc116b0779d28fae1d80956da1fdc5e46b6cc9122d3ec3407ecb9",
+)
+
 # The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
 # This commit matches the version of buildifier in angular/ngcontainer
 # If you change this, also check if it matches the version in the angular/ngcontainer
