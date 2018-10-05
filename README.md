@@ -41,26 +41,6 @@ or
 npm install -g @bazel/ibazel
 ```
 
-## Setup
-
-Before building the app, we install packages, just as with any npm-based development workflow.
-
-```bash
-$ yarn install
-```
-
-or
-
-```bash
-$ npm install
-```
-
-For the time being, you need to run your locally installed `yarn` or `npm` to install dependencies
-as shown above. This is because we pull down the `@bazel/typescript` bazel dependency from npm and
-that dependency needs to be in place before we can build the project. We're working to
-resolve this bootstrapping issue. Soon you will be able to skip this step and just do your first
-Bazel build without needing any install step first.
-
 ## Development
 
 Next we'll run the development server:
@@ -129,3 +109,14 @@ the entry points and modules is how routes are loaded, with production
 lazy loading routes and development using a custom `NgModuleFactoryLoader`
 loader to disable lazy loading. `enableProdMode()` is
 also called in the production entry point.
+
+## Npm dependencies
+
+Having a local `node_modules` folder setup by `yarn` or `npm` is not
+necessary when building this example with Bazel. This example makes use
+of Bazel managed npm dependencies (https://github.com/bazelbuild/rules_nodejs#using-bazel-managed-dependencies)
+which means Bazel will setup the npm dependencies in your `package.json` for you
+outside of your local workspace for use in the build.
+
+However, you may still want to run `yarn` or `npm` to manually
+setup a local `node_modules` folder for editor and tooling support.

@@ -29,9 +29,11 @@ http_archive(
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
-local_repository(
+http_archive(
     name = "rxjs",
-    path = "node_modules/rxjs/src",
+    url = "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz",
+    strip_prefix = "package/src",
+    sha256 = "72b0b4e517f43358f554c125e40e39f67688cd2738a8998b4a266981ed32f403",
 )
 
 ####################################
@@ -44,7 +46,6 @@ rules_angular_dependencies()
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
 node_repositories(
-    preserve_symlinks = True,
     node_version = "10.9.0",
     yarn_version = "1.9.2",
 )
