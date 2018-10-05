@@ -15,7 +15,21 @@ Follow https://github.com/angular/angular/issues/19058 for updates.
 
 ## Installation
 
-Add `ibazel` to your `$PATH`:
+Install Bazel from the distribution, see [install] instructions.
+On Mac, if you have Homebrew installed you can
+
+```bash
+brew tap bazelbuild/tap
+brew tap-pin bazelbuild/tap
+brew install bazel
+```
+
+Bazel will install a hermetic version of Node, npm, and Yarn when
+you run the first build.
+
+[install]: https://bazel.build/versions/master/docs/install.html
+
+Also add `ibazel` to your `$PATH`:
 
 ```
 yarn global add @bazel/ibazel
