@@ -80,3 +80,14 @@ sass_repositories()
 load("@angular//:index.bzl", "ng_setup_workspace")
 
 ng_setup_workspace()
+
+# In Bazel 0.18, we can use .bazelignore to stop seeing things in node_modules
+# for now this lets us ignore things in @angular-devkit
+local_repository(
+    name = "ignore_rxjs1",
+    path = "node_modules/@angular-devkit/core/node_modules/rxjs/src",
+)
+local_repository(
+    name = "ignore_rxjs2",
+    path = "node_modules/@angular-devkit/architect/node_modules/rxjs/src",
+)
