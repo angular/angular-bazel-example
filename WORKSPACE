@@ -21,10 +21,11 @@ http_archive(
 )
 
 # The @angular repo contains rule for building Angular applications
+# TODO(gmagolan): Update to next 7.0.x tag when it is released
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/08e4489cf5a93a352954f1639da5e92112993753.zip",
-    strip_prefix = "angular-08e4489cf5a93a352954f1639da5e92112993753",
+    url = "https://github.com/angular/angular/archive/bfeceb3d3e636d755c2bd7bdd85b7136da066c78.zip",
+    strip_prefix = "angular-bfeceb3d3e636d755c2bd7bdd85b7136da066c78",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
@@ -33,6 +34,13 @@ http_archive(
     url = "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz",
     strip_prefix = "package/src",
     sha256 = "72b0b4e517f43358f554c125e40e39f67688cd2738a8998b4a266981ed32f403",
+)
+
+# Rules for compiling sass
+http_archive(
+    name = "io_bazel_rules_sass",
+    url = "https://github.com/bazelbuild/rules_sass/archive/1.14.1.zip",
+    strip_prefix = "rules_sass-1.14.1",
 )
 
 # This local_repository rule is needed to prevent `bazel build ...` from

@@ -13,10 +13,12 @@ ts_library(
     ],
 )
 
+# The @npm//@angular/bazel npm dependency provides
+# the @angular/bazel/protractor-utils
 protractor_web_test_suite(
     name = "prodserver_test",
     data = [
-        "@angular//packages/bazel/src/protractor/utils",
+        "@npm//@angular/bazel",
         "@npm//protractor",
         "@npm//zone.js",
     ],
@@ -25,10 +27,12 @@ protractor_web_test_suite(
     deps = [":e2e"],
 )
 
+# The @npm//@angular/bazel npm dependency provides
+# the @angular/bazel/protractor-utils
 protractor_web_test_suite(
     name = "devserver_test",
     data = [
-        "@angular//packages/bazel/src/protractor/utils",
+        "@npm//@angular/bazel",
         "@npm//protractor",
         "@npm//zone.js",
     ],
