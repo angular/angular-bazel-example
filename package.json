@@ -11,10 +11,10 @@
         "zone.js": "0.8.26"
     },
     "devDependencies": {
-        "@angular/bazel": "github:angular/bazel-builds#7.0.x",
-        "@angular/compiler": "github:angular/compiler-builds#7.0.x",
-        "@angular/compiler-cli": "github:angular/compiler-cli-builds#7.0.x",
-        "@angular/core": "github:angular/core-builds#7.0.x",
+        "@angular/bazel": "7.0.1",
+        "@angular/compiler": "7.0.1",
+        "@angular/compiler-cli": "7.0.1",
+        "@angular/core": "7.0.1",
         "@bazel/benchmark-runner": "0.1.0",
         "@bazel/ibazel": "0.5.0",
         "@bazel/karma": "0.20.3",

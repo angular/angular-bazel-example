@@ -21,11 +21,10 @@ http_archive(
 )
 
 # The @angular repo contains rule for building Angular applications
-# TODO(gmagolan): Update to next 7.0.x tag when it is released
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/bfeceb3d3e636d755c2bd7bdd85b7136da066c78.zip",
-    strip_prefix = "angular-bfeceb3d3e636d755c2bd7bdd85b7136da066c78",
+    url = "https://github.com/angular/angular/archive/7.0.1.zip",
+    strip_prefix = "angular-7.0.1",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel

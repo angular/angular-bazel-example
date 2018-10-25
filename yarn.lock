@@ -2,18 +2,20 @@
 # yarn lockfile v1
 
 
-"@angular/bazel@github:angular/bazel-builds#7.0.x":
-  version "7.0.0"
-  resolved "https://codeload.github.com/angular/bazel-builds/tar.gz/1c6b0aae1d2e66cebb4d4ab39ac3f6d88f73e1ae"
+"@angular/bazel@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-7.0.1.tgz#42e1a114a20643ea53cff1bb8091e1ba08637885"
+  integrity sha512-DEv1QiccMglqPyXqxtl3Onm4j1aIJzvWx/4Tyy6gEK/r7wOqwffkPrmQGGJC3QAhsXxXMRK0mQ3jkKoAXLbunA==
   dependencies:
     "@bazel/typescript" "^0.20.3"
     "@types/node" "6.0.84"
     shelljs "0.8.2"
     tsickle "0.32.1"
 
-"@angular/compiler-cli@github:angular/compiler-cli-builds#7.0.x":
-  version "7.0.0"
-  resolved "https://codeload.github.com/angular/compiler-cli-builds/tar.gz/5db61187ed62264e53f958ccd717040a8dee82d0"
+"@angular/compiler-cli@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-7.0.1.tgz#bd21ebc950f65fb5848307a271e7bd9d049efc9c"
+  integrity sha512-WXl2bDoAYWsxwjuIrY34eNZ6Ph4fUff2eK+ZPnkm5zSud1ZlC0zqcG//ccoLqS4Bly3He2obSJ+8SaQjzsqK1g==
   dependencies:
     canonical-path "0.0.2"
     chokidar "^1.4.2"
@@ -26,15 +28,17 @@
     source-map "^0.6.1"
     yargs "9.0.1"
 
-"@angular/compiler@github:angular/compiler-builds#7.0.x":
-  version "7.0.0"
-  resolved "https://codeload.github.com/angular/compiler-builds/tar.gz/e5224449793fda7089c1c3750b4cbbe15371473f"
+"@angular/compiler@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-7.0.1.tgz#29271bfdc9ac98f2f93c473a0cd82d6a043cf6e3"
+  integrity sha512-X/q51ZAFd0GBJyuZTOKpieyePhlNBAfYCPRi57S2BpxG6i9QjjeM+sPwzjsMmU1P6Qyt/pPpVG738mLocPvdpA==
   dependencies:
     tslib "^1.9.0"
 
-"@angular/core@github:angular/core-builds#7.0.x":
-  version "7.0.0"
-  resolved "https://codeload.github.com/angular/core-builds/tar.gz/fda119d6dfa8d4b33dd142aa88e45db5418aada0"
+"@angular/core@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-7.0.1.tgz#42f52bf04bf88759d4f4b9e03cb9b312508233a0"
+  integrity sha512-u/3Xx+tIddVC1wANjK1F102uG8fQrNd4Y9nlz3vtKcnFX66b2SQlnjWd18L8FmzYtzaI44RxSWWTPQB0eTx1xw==
   dependencies:
     tslib "^1.9.0"
 
