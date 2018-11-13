@@ -20,12 +20,13 @@ ng_module(
         ":hello-world.component.html",
         ":hello-world-styles",
     ],
+    tsconfig = "//src:tsconfig.json",
     deps = [
         "//src/lib",
+        "//src/material",
         "@angular//packages/core",
         "@angular//packages/forms",
         "@angular//packages/router",
-        "@npm//@types",
     ],
 )
 
@@ -39,6 +40,7 @@ ts_library(
         "@angular//packages/core/testing",
         "@angular//packages/platform-browser",
         "@angular//packages/platform-browser-dynamic/testing",
+        "@angular//packages/platform-browser/animations",
         "@npm//@types/jasmine",
         "@npm//@types/node",
     ],
@@ -51,6 +53,7 @@ ts_web_test_suite(
     bootstrap = [
         "@npm//node_modules/zone.js:dist/zone-testing-bundle.js",
         "@npm//node_modules/reflect-metadata:Reflect.js",
+        "//src:module-id.js",
     ],
     browsers = [
         "@io_bazel_rules_webtesting//browsers:chromium-local",

@@ -18,6 +18,7 @@ ng_module(
     tsconfig = ":tsconfig.json",
     deps = [
         "//src/hello-world",
+        "//src/material",
         "//src/todos",
         "@angular//packages/core",
         "@angular//packages/router",
@@ -35,12 +36,14 @@ ts_devserver(
     additional_root_paths = [
         "npm/node_modules/zone.js/dist",
         "npm/node_modules/tslib",
+        "npm/node_modules/@angular/material/prebuilt-themes",
         "npm/node_modules/@ngrx/store/bundles",
     ],
     # Start from the development version of the main
     entry_module = "angular_bazel_example/src/main.dev",
     scripts = [
         ":require.config.js",
+        ":module-id.js",
     ],
     # This is the URL we'll point our <script> tag at
     serving_path = "/bundle.min.js",
@@ -48,6 +51,7 @@ ts_devserver(
     static_files = [
         "@npm//node_modules/zone.js:dist/zone.min.js",
         "@npm//node_modules/tslib:tslib.js",
+        "@npm//node_modules/@angular/material:prebuilt-themes/deeppurple-amber.css",
         "@npm//node_modules/@ngrx/store:bundles/store.umd.min.js",
         "index.html",
     ],
@@ -93,6 +97,14 @@ genrule(
     cmd = "cp $< $@",
 )
 
+# See comment for zonejs above
+genrule(
+    name = "copy_material_theme",
+    srcs = ["@npm//node_modules/@angular/material:prebuilt-themes/deeppurple-amber.css"],
+    outs = ["deeppurple-amber.css"],
+    cmd = "cp $< $@",
+)
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "history_server")
 
 history_server(
@@ -100,6 +112,7 @@ history_server(
     data = [
         "index.html",
         ":bundle",
+        ":copy_material_theme",
         ":copy_systemjs",
         ":copy_zonejs",
     ],

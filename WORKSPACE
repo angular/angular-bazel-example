@@ -23,8 +23,8 @@ http_archive(
 # The @angular repo contains rule for building Angular applications
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/7.0.1.zip",
-    strip_prefix = "angular-7.0.1",
+    url = "https://github.com/angular/angular/archive/7.0.2.zip",
+    strip_prefix = "angular-7.0.2",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
@@ -33,6 +33,14 @@ http_archive(
     url = "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz",
     strip_prefix = "package/src",
     sha256 = "72b0b4e517f43358f554c125e40e39f67688cd2738a8998b4a266981ed32f403",
+)
+
+# Angular material
+# TODO(gmagolan): update to next tagged https://github.com/angular/material2
+http_archive(
+    name = "angular_material",
+    url = "https://github.com/angular/material2/archive/150c964c320c8573b6c02eb0a7024bb2919a22c2.zip",
+    strip_prefix = "material2-150c964c320c8573b6c02eb0a7024bb2919a22c2",
 )
 
 # Rules for compiling sass
@@ -97,3 +105,7 @@ sass_repositories()
 load("@angular//:index.bzl", "ng_setup_workspace")
 
 ng_setup_workspace()
+
+load("@angular_material//:index.bzl", "angular_material_setup_workspace")
+
+angular_material_setup_workspace()
