@@ -11,7 +11,10 @@ ts_config(
 
 ng_module(
     name = "src",
-    srcs = glob(["*.ts"]),
+    srcs = glob(
+        ["*.ts"],
+        exclude = ["main.ts"],
+    ),
     assets = [
         ":app.component.html",
     ],
@@ -72,7 +75,7 @@ rollup_bundle(
         "src/hello-world/hello-world.module.ngfactory",
         "src/todos/todos.module.ngfactory",
     ],
-    entry_point = "src/main",
+    entry_point = "src/main.prod",
     deps = [
         "//src",
         "@npm//@ngrx/store",
