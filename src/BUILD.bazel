@@ -122,5 +122,6 @@ history_server(
         ":copy_systemjs",
         ":copy_zonejs",
         "//src/images:image_assets",
+        "//src/styles:main",
     ],
 )
