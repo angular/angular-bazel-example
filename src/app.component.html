@@ -1,4 +1,22 @@
-<mat-toolbar>
-  <nav><a routerLink="/">Home</a> | <a routerLink="/todos">Todos</a></nav>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<nav>
+  <mat-toolbar>
+    <a href="https://bazel.build" class="mat-button">
+      <img class="nav-logo" src="/images/bazel-navbar.svg">
+    </a>
+    <a routerLink="/" class="mat-button hide-small">Home</a>
+    <a routerLink="/todos" class="mat-button hide-small">Todos</a>
+    <span class="flex-spacer"></span>
+    <a href="https://github.com/alexeagle/angular-bazel-example" class="mat-button">
+      <img class="nav-logo" src="/images/github-circle-white-transparent.svg">
+    </a>
+  </mat-toolbar>
+
+	<mat-toolbar class="show-small mobile-nav">
+    <a routerLink="/" class="mat-button">Home</a>
+    <a routerLink="/todos" class="mat-button">Todos</a>
+	</mat-toolbar>
+</nav>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
