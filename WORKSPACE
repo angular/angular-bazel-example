@@ -7,6 +7,10 @@
 # imports also make sense when referencing the published package.
 workspace(name = "angular_bazel_example")
 
+# The native http_archive rule is deprecated in Bazel 0.20.0
+# we need to load the new rule from the following package
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 # The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
 BAZEL_BUILDTOOLS_VERSION = "49a6c199e3fbf5d94534b2771868677d3f9c6de9"
 
@@ -20,8 +24,8 @@ http_archive(
 # The @angular repo contains rule for building Angular applications
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/7.1.0.zip",
-    strip_prefix = "angular-7.1.0",
+    url = "https://github.com/angular/angular/archive/7.1.3.zip",
+    strip_prefix = "angular-7.1.3",
 )
 
 # The @rxjs repo contains targets for building rxjs with bazel
@@ -33,11 +37,16 @@ http_archive(
 )
 
 # Angular material
-# Note: material v7.1.1 is compatible with angular v7.1.0 under Bazel
+# NOTE: using a `7.1.1-compat-ng-7.1.3` branch of material2 on a fork here
+# since Angular and rules_typescript version under Bazel checking is too strict
+# at the moment.
+# https://github.com/gregmagolan/material2/commit/e2090864cddf926445eefd39c7e90eada107013d
+# TODO(gregmagolan): update the next release of material that is compatible with
+#   Angular 7.1.3 under Bazel
 http_archive(
     name = "angular_material",
-    url = "https://github.com/angular/material2/archive/7.1.1.zip",
-    strip_prefix = "material2-7.1.1",
+    url = "https://github.com/gregmagolan/material2/archive/7.1.1-compat-ng-7.1.3.zip",
+    strip_prefix = "material2-7.1.1-compat-ng-7.1.3",
 )
 
 # Rules for compiling sass
