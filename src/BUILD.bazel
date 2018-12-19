@@ -25,6 +25,8 @@ ng_module(
         "//src/material",
         "//src/todos",
         "@angular//packages/core",
+        "@angular//packages/platform-browser",
+        "@angular//packages/platform-browser/animations",
         "@angular//packages/router",
         "@npm//@ngrx/store",
     ],
