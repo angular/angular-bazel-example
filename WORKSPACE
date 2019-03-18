@@ -13,46 +13,8 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "build_bazel_rules_nodejs",
-    sha256 = "895c2b0d1480834808216fb36cd4bf21517954cb966c893ee42421dfefcfd4bc",
-    strip_prefix = "rules_nodejs-1f6d878a9ea3a095291f66e3d1a0f6b4641f5159",
-    url = "https://github.com/bazelbuild/rules_nodejs/archive/1f6d878a9ea3a095291f66e3d1a0f6b4641f5159.zip",
-)
-
-http_archive(
-    name = "build_bazel_rules_typescript",
-    sha256 = "5a31a67550d2a92270599e90a221afe229f6e1863bf2eff22e9750c6ecf45978",
-    strip_prefix = "rules_typescript-2963b55370b21d545d0ac0f30fca9dc74a0f5538",
-    url = "https://github.com/bazelbuild/rules_typescript/archive/2963b55370b21d545d0ac0f30fca9dc74a0f5538.zip",
-)
-
-# The @angular repo contains rule for building Angular applications
-http_archive(
-    name = "angular",
-    sha256 = "c480904802d62ce63a4955fd8679371a0d9620131c1c424c8786429f4e8ac77e",
-    strip_prefix = "angular-7.1.3",
-    url = "https://github.com/angular/angular/archive/7.1.3.zip",
-)
-
-# The @rxjs repo contains targets for building rxjs with bazel
-http_archive(
-    name = "rxjs",
-    sha256 = "72b0b4e517f43358f554c125e40e39f67688cd2738a8998b4a266981ed32f403",
-    strip_prefix = "package/src",
-    url = "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz",
-)
-
-# Angular material
-# NOTE: using a `7.1.1-compat-ng-7.1.3` branch of material2 on a fork here
-# since Angular and rules_typescript version under Bazel checking is too strict
-# at the moment.
-# https://github.com/gregmagolan/material2/commit/e2090864cddf926445eefd39c7e90eada107013d
-# TODO(gregmagolan): update the next release of material that is compatible with
-#   Angular 7.1.3 under Bazel
-http_archive(
-    name = "angular_material",
-    sha256 = "75bec457885ddf084219a9da152ff79831d84909bb036552141ca3aadee64a04",
-    strip_prefix = "material2-7.1.1-compat-ng-7.1.3",
-    url = "https://github.com/gregmagolan/material2/archive/7.1.1-compat-ng-7.1.3.zip",
+    sha256 = "fb87ed5965cef93188af9a7287511639403f4b0da418961ce6defb9dcf658f51",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.27.7/rules_nodejs-0.27.7.tar.gz"],
 )
 
 # Rules for compiling sass
@@ -63,20 +25,9 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_sass/archive/1.15.1.zip",
 )
 
-####################################
-# Load and install our dependencies downloaded above.
-
-load("@angular//packages/bazel:package.bzl", "rules_angular_dependencies")
-
-rules_angular_dependencies()
-
-load("@build_bazel_rules_typescript//:package.bzl", "rules_typescript_dependencies")
-
-rules_typescript_dependencies()
-
-load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
-
-rules_nodejs_dependencies()
+#####################################
+# Load and install our dependencies #
+#####################################
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "check_bazel_version", "node_repositories", "yarn_install")
 
@@ -91,16 +42,18 @@ node_repositories(
 
 yarn_install(
     name = "npm",
-    data = ["//:postinstall.tsconfig.json"],
+    data = ["//:angular-metadata.tsconfig.json"],
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
 )
 
-load("@io_bazel_rules_go//go:def.bzl", "go_register_toolchains", "go_rules_dependencies")
+load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
 
-go_rules_dependencies()
+install_bazel_dependencies()
 
-go_register_toolchains()
+load("@npm_bazel_karma//:package.bzl", "rules_karma_dependencies")
+
+rules_karma_dependencies()
 
 load("@io_bazel_rules_webtesting//web:repositories.bzl", "browser_repositories", "web_test_repositories")
 
@@ -111,21 +64,13 @@ browser_repositories(
     firefox = True,
 )
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
+load("@npm_bazel_typescript//:defs.bzl", "ts_setup_workspace")
 
 ts_setup_workspace()
 
 load("@io_bazel_rules_sass//:defs.bzl", "sass_repositories")
 
 sass_repositories()
-
-load("@angular//:index.bzl", "ng_setup_workspace")
-
-ng_setup_workspace()
-
-load("@angular_material//:index.bzl", "angular_material_setup_workspace")
-
-angular_material_setup_workspace()
 
 ####################################################
 # Support creating Docker images for our node apps #

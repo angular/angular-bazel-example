@@ -1,5 +1,5 @@
 
-import {NgModule, NgModuleFactoryLoader} from '@angular/core';
+import {NgModule, NgModuleFactory, NgModuleFactoryLoader} from '@angular/core';
 
 import * as routes from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -8,7 +8,7 @@ import {HelloWorldModuleNgFactory} from './hello-world/hello-world.module.ngfact
 import {TodosModuleNgFactory} from './todos/todos.module.ngfactory';
 
 export class MyLoader extends NgModuleFactoryLoader {
-  load(id: string) {
+  load(id: string): Promise<NgModuleFactory<{}>> {
     switch (id) {
       case routes.helloModuleId:
         return Promise.resolve(HelloWorldModuleNgFactory);
