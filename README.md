@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/angular/angular-bazel-example.svg?style=svg)](https://circleci.com/gh/angular/angular-bazel-example)
 
-# Example of building an Angular app with Bazel
+# Example Angular monorepo using Bazel
 
 **This is experimental, as part of Angular Labs! There may be breaking changes.**
 
@@ -9,7 +9,7 @@ develop Angular applications the same way we do at Google.
 See http://g.co/ng/abc for an overview.
 
 You can read the documentation in the wiki of this repository to understand how
-this works.
+this works. There is also various documentation linked from https://docs.bazel.build/versions/master/bazel-and-javascript.html
 
 Follow https://github.com/angular/angular/issues/19058 for updates.
 
@@ -17,6 +17,7 @@ Follow https://github.com/angular/angular/issues/19058 for updates.
 
 This example is a monorepo, meant to show many different features and integrations that we expect are generally useful for enterprise use cases.
 
+- **Angular CLI**: you can use the `ng` command to run build, serve, test, and e2e
 - **Angular Libraries**: to maximize build incrementality, each Angular module is compiled as a separate step. This lets us re-use Angular libraries without having to publish them as npm packages. See `src/todos` for a typical `NgModule` compiled as a library for use in the application, using the `ng_module` rule in the `BUILD.bazel` file.
 - **TypeScript Libraries**: see `src/lib` for a trivial example of a pure-TS library that's consumed in the application, using the `ts_library` rule in the `BUILD.bazel` file.
 - **Sass**: we use Sass for all styling. Angular components import Sass files, and these are built by Bazel as independent processes calling the modern Sass compiler (written in Dart).
@@ -44,7 +45,7 @@ You simply run `bazel` commands shown below, and don't need to install NodeJS, y
 First we'll run the development server:
 
 ```bash
-$ yarn serve
+$ ng serve
 # or
 $ ibazel run //src:devserver
 ```
@@ -65,7 +66,7 @@ Control-C twice to kill the devserver.
 We can also run all the unit tests:
 
 ```bash
-$ yarn test
+$ ng test
 # or
 $ bazel test //src/...
 ```
@@ -73,7 +74,7 @@ $ bazel test //src/...
 Or run the end-to-end tests:
 
 ```bash
-$ yarn e2e
+$ ng e2e
 # or
 $ bazel test //e2e/...
 ```
@@ -92,7 +93,7 @@ requires re-optimizing the app. This example uses Rollup and Uglify, but other
 bundlers can be integrated with Bazel.
 
 ```bash
-$ yarn serve-prod
+$ ng serve --prod
 # or
 $ bazel run //src:prodserver
 ```
