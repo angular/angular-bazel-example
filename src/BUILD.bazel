@@ -161,19 +161,27 @@ rollup_bundle(
 
 web_package(
     name = "prodapp",
-    additional_root_paths = _ROOT_DIRS + ["npm/node_modules/systemjs/dist"],
+    additional_root_paths = _ROOT_DIRS + [
+        # In production mode we also serve some polyfills
+        "npm/node_modules/core-js/client",
+        "npm/node_modules/systemjs/dist",
+    ],
     # do not sort
     assets = [
         "@npm//node_modules/@angular/material:prebuilt-themes/deeppurple-amber.css",
         "@npm//node_modules/zone.js:dist/zone.min.js",
-        # We load system.js here as it is required in prodmode for code-splitting support.
-        "@npm//node_modules/systemjs:dist/system.js",
         "//src/styles:main",
+        # For differential loading, we supply both an ESModule entry point and an es5 entry point
+        # The injector will put two complimentary script tags in the index.html
         ":bundle.min.js",
+        ":bundle.min.es2015.js",
     ],
     data = [
         ":bundle",
         "//src/images:image_assets",
+        # Include polyfills that will be requested by old browsers
+        "@npm//node_modules/systemjs:dist/system.js",
+        "@npm//node_modules/core-js:client/core.min.js",
     ],
     # <script> and <link> tags will be automatically injected into this index.
     index_html = "index.html",

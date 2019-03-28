@@ -2,6 +2,6 @@
  * Used to launch the application under Bazel development mode.
  */
 import {platformBrowser} from '@angular/platform-browser';
-import {AppModuleDevNgFactory} from './app.module.dev.ngfactory';
+import {AppModuleNgFactory} from './app.module.ngfactory';
 
-platformBrowser().bootstrapModuleFactory(AppModuleDevNgFactory);
+platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);

@@ -1,18 +1,25 @@
-import {Routes, RouterModule} from '@angular/router';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
-export const helloModuleId = './hello-world/hello-world.module#HelloWorldModule';
-export const todosModuleId = './todos/todos.module#TodosModule';
-
-// These are lazy-loaded routes - note that we don't import the modules here
+// These are lazy-loaded routes - note that we dynamic-import the modules here
 // to avoid having an eager dependency on them.
 const routes: Routes = [
-  {path: '', pathMatch: 'full', loadChildren: helloModuleId},
-  {path: 'todos', pathMatch: 'full', loadChildren: todosModuleId},
+  {
+    path: '',
+    pathMatch: 'full',
+    loadChildren: () =>
+        import('./hello-world/hello-world.module.ngfactory').then(m => m.HelloWorldModuleNgFactory)
+  },
+  {
+    path: 'todos',
+    pathMatch: 'full',
+    loadChildren: () => import('./todos/todos.module.ngfactory').then(m => m.TodosModuleNgFactory)
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

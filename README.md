@@ -23,7 +23,8 @@ This example is a monorepo, meant to show many different features and integratio
 - **Sass**: we use Sass for all styling. Angular components import Sass files, and these are built by Bazel as independent processes calling the modern Sass compiler (written in Dart).
 - **Material design**: see `src/material` where we collect the material modules we use.
 - **Redux-style state management**: see `src/reducers` where we use the [NgRx Store](https://ngrx.io/guide/store).
-- **Lazy loading**: in production mode, the application is served in chunks.
+- **Lazy loading**: in production mode, the application is served in chunks. Run `ng serve --prod`
+- **Differential loading**: in production mode, we load a pair of `<script>` tags. Modern browsers will load code in the ES2015 syntax, which is smaller and requires fewer polyfills. Older browsers will load ES5 syntax.
 - **Docker**: see below where we package up the production app for deployment on Kubernetes.
 
 ## Installation
@@ -131,6 +132,8 @@ We use Bazel's docker support to package up our production server for deployment
 Each time the app changes, we'll get a slim new docker layer with just the modified files, keeping the round-trip for deployment incremental and fast.
 This example is configured to run on Google Kubernetes Engine, so we can have an elastic pool of backend machines behind a load balancer.
 This setup is more expensive to operate than something like Firebase Functions where the backend code is spun up on-demand, but is also more adaptable to scenarios like backend servers that need to run other binaries on the machine.
+
+The application is currently live at http://35.197.115.230/
 
 To run it under docker:
 
