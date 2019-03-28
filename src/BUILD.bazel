@@ -1,9 +1,9 @@
-load("@build_bazel_rules_nodejs//:defs.bzl", "history_server", "rollup_bundle")
+load("@build_bazel_rules_nodejs//:defs.bzl", "history_server", "rollup_bundle", "nodejs_binary")
 load("@build_bazel_rules_nodejs//internal/web_package:web_package.bzl", "web_package")
 load("@io_bazel_rules_docker//container:container.bzl", "container_image")
 load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
 load("@npm_angular_bazel//:index.bzl", "ng_module")
-load("@npm_bazel_typescript//:defs.bzl", "ts_config", "ts_devserver")
+load("@npm_bazel_typescript//:defs.bzl", "ts_config", "ts_library", "ts_devserver")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -25,7 +25,7 @@ ng_module(
     name = "src",
     srcs = glob(
         ["*.ts"],
-        exclude = ["main.ts"],
+        exclude = ["main.ts", "*.server.ts"],
     ),
     assets = [
         ":app.component.html",
@@ -133,6 +133,45 @@ ts_devserver(
     ],
     # Tell Bazel to build the sources first
     deps = ["//src"],
+)
+
+
+MORE_NG_FACTORY_ADDED_IMPORTS = [
+    "@npm//@angular/router",
+    "@npm//@ngrx/store",
+]
+
+ng_module(
+    name = "server_module",
+    srcs = ["app.module.server.ts"],
+    tsconfig = ":tsconfig.json",
+    deps = NG_FACTORY_ADDED_IMPORTS + MORE_NG_FACTORY_ADDED_IMPORTS + [
+        ":src",
+        "@npm//@angular/core",
+        "@npm//@angular/platform-server",
+    ],
+)
+
+ts_library(
+    name = "server_dev_lib",
+    srcs = ["main.dev.server.ts"],
+    deps = [
+        ":server_module",
+        "@npm//@angular/core",
+        "@npm//@nguniversal/express-engine",
+        "@npm//@types",
+    ],
+)
+
+nodejs_binary(
+    name = "server",
+    entry_point = "angular_bazel_example/src/main.dev.server.js",
+    data = [
+        ":server_dev_lib",
+        "@npm//zone.js",
+        "@npm//http-proxy",
+        ":devserver_launcher",
+    ],
 )
 
 rollup_bundle(

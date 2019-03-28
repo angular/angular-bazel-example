@@ -11,7 +11,7 @@
         ],
         "experimentalDecorators": true,
         "types": [],
-        "module": "amd",
+        "module": "umd",
         "moduleResolution": "node"
     },
     "angularCompilerOptions": {
