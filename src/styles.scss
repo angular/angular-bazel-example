@@ -1,5 +1,8 @@
-@import "./fonts";
-@import "./colors";
+$theme-primary: #3e236e;
+$theme-secondary: #43a047;
+
+$default-font-stack: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+$modern-font-stack: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 
 html, body {
   font-family: $default-font-stack;
@@ -44,3 +47,13 @@ nav > .mat-toolbar {
 	}
 }
 
+.mat-card {
+	margin: 1em;
+}
+
+h1 {
+	font-family: $modern-font-stack;
+	color: $theme-primary;
+  }
+  
+  
