@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
-import {format} from 'date-fns'
-
-import {msg} from '../lib/file';
+import {shorten} from '@bazel/shorten';
+import {format} from 'date-fns';
 
 @Component({
   selector: 'hello-world',
@@ -9,6 +8,6 @@ import {msg} from '../lib/file';
   styleUrls: ['./hello-world.component.scss']
 })
 export class HelloWorldComponent {
-  name: string = msg;
+  name: string = shorten('Adolph Blaine Wolfeschlegelsteinhausenbergerdorff, Senior ', 15);
   date: string = format(new Date(), 'MMMM D, YYYY');
 }

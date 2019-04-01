@@ -1,6 +1,6 @@
 load("@k8s_deploy//:defaults.bzl", "k8s_deploy")
 
-package(default_visibility = ["//visibility:public"])
+package(default_visibility = ["//:__subpackages__"])
 
 # ts_library and ng_module use the `//:tsconfig.json` target
 # by default. This alias allows omitting explicit tsconfig

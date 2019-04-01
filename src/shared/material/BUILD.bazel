@@ -1,6 +1,6 @@
 load("@npm_angular_bazel//:index.bzl", "ng_module")
 
-package(default_visibility = ["//visibility:public"])
+package(default_visibility = ["//:__subpackages__"])
 
 # We don't import from these, but the generated ngfactory code will
 NG_FACTORY_ADDED_IMPORTS = [

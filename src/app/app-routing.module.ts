@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('./home.ngfactory').then(m => m.HomeModuleNgFactory)
+    loadChildren: () => import('./home/home.ngfactory').then(m => m.HomeModuleNgFactory)
   },
   {
     path: 'hello',
