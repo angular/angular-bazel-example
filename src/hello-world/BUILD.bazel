@@ -34,6 +34,7 @@ ng_module(
         "@npm//@angular/core",
         "@npm//@angular/forms",
         "@npm//@angular/router",
+        "@npm//date-fns",
     ],
 )
 
@@ -118,6 +119,11 @@ ts_web_test_suite(
         "@npm//node_modules/@angular/router:bundles/router.umd.js",
         "@npm//node_modules/@angular/router:router.ngfactory.js",
         "@npm//node_modules/@angular/router:router.ngsummary.js",
+        # We are manaully adding a browserify generated named UMD date-fns bundle here that
+        # was generated in our package.json postinstall step. This is a temporary work-around
+        # to get commonjs modules & npm packages working with ts_web_test_suite. A more ergonomic
+        # solution is planned for Angular v8. See https://github.com/bazelbuild/rules_nodejs/issues/646.
+        "@npm//node_modules/date-fns:date-fns.umd.js",
         "@npm//node_modules/tslib:tslib.js",
     ],
     # do not sort

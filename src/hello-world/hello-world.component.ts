@@ -1,4 +1,6 @@
-import {Component, NgModule} from '@angular/core';
+import {Component} from '@angular/core';
+import {format} from 'date-fns'
+
 import {msg} from '../lib/file';
 
 @Component({
@@ -8,4 +10,5 @@ import {msg} from '../lib/file';
 })
 export class HelloWorldComponent {
   name: string = msg;
+  date: string = format(new Date(), 'MMMM D, YYYY');
 }
