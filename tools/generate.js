@@ -105,20 +105,6 @@ ts_library(
 
 ts_web_test_suite(
     name = "test",
-    srcs = [
-        "@npm//node_modules/@angular/common:bundles/common.umd.js",
-        "@npm//node_modules/@angular/common:bundles/common-http.umd.js",
-        "@npm//node_modules/@angular/common:common.ngsummary.js",
-        "@npm//node_modules/@angular/compiler:bundles/compiler.umd.js",
-        "@npm//node_modules/@angular/compiler:bundles/compiler-testing.umd.js",
-        "@npm//node_modules/@angular/core:bundles/core.umd.js",
-        "@npm//node_modules/@angular/core:bundles/core-testing.umd.js",
-        "@npm//node_modules/@angular/platform-browser:bundles/platform-browser.umd.js",
-        "@npm//node_modules/@angular/platform-browser:bundles/platform-browser-testing.umd.js",
-        "@npm//node_modules/@angular/platform-browser-dynamic:bundles/platform-browser-dynamic.umd.js",
-        "@npm//node_modules/@angular/platform-browser-dynamic:bundles/platform-browser-dynamic-testing.umd.js",
-        "@npm//node_modules/tslib:tslib.js",
-    ],
     runtime_deps = [
         "//src:initialize_testbed",
     ],
