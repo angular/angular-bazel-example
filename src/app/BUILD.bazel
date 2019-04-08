@@ -13,7 +13,16 @@ NG_FACTORY_ADDED_IMPORTS = [
 # This list is auto-updated by /tools/generator
 # Make sure not to rename this variable
 GENERATED_FEATURES = [
-    
+    "//src/app/billing",
+    "//src/app/compute",
+    "//src/app/datastore",
+    "//src/app/functions",
+    "//src/app/logging",
+    "//src/app/monitoring",
+    "//src/app/networking",
+    "//src/app/registry",
+    "//src/app/storage",
+    "//src/app/support",
 ]
 
 ng_module(

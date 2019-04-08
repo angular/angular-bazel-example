@@ -131,7 +131,16 @@ ts_devserver(
 # This list is auto-updated by /tools/generator
 # Make sure not to rename this variable
 GENERATED_FEATURES = [
-    
+    "src/app/billing/billing.module.ngfactory",
+    "src/app/compute/compute.module.ngfactory",
+    "src/app/datastore/datastore.module.ngfactory",
+    "src/app/functions/functions.module.ngfactory",
+    "src/app/logging/logging.module.ngfactory",
+    "src/app/monitoring/monitoring.module.ngfactory",
+    "src/app/networking/networking.module.ngfactory",
+    "src/app/registry/registry.module.ngfactory",
+    "src/app/storage/storage.module.ngfactory",
+    "src/app/support/support.module.ngfactory",
 ]
 
 rollup_bundle(
