@@ -115,7 +115,6 @@ ts_devserver(
         "@npm//node_modules/tslib:tslib.js",
         ":rxjs_umd_modules",
         ":require.config.js",
-
         # We are manaully adding a browserify generated named UMD date-fns bundle here that
         # was generated in our package.json postinstall step. This is a temporary work-around
         # to get commonjs modules & npm packages working with ts_devserver. A more ergonomic
@@ -129,6 +128,12 @@ ts_devserver(
     deps = ["//src"],
 )
 
+# This list is auto-updated by /tools/generator
+# Make sure not to rename this variable
+GENERATED_FEATURES = [
+    
+]
+
 rollup_bundle(
     name = "bundle",
     # These Angular routes may be lazy-loaded at runtime.
@@ -140,17 +145,7 @@ rollup_bundle(
         "src/app/home/home.ngfactory",
         "src/app/hello-world/hello-world.module.ngfactory",
         "src/app/todos/todos.module.ngfactory",
-        "src/app/billing/billing.module.ngfactory",
-        "src/app/compute/compute.module.ngfactory",
-        "src/app/datastore/datastore.module.ngfactory",
-        "src/app/functions/functions.module.ngfactory",
-        "src/app/logging/logging.module.ngfactory",
-        "src/app/monitoring/monitoring.module.ngfactory",
-        "src/app/networking/networking.module.ngfactory",
-        "src/app/registry/registry.module.ngfactory",
-        "src/app/storage/storage.module.ngfactory",
-        "src/app/support/support.module.ngfactory",
-    ],
+    ] + GENERATED_FEATURES,
     entry_point = "src/main.prod",
     deps = [
         "//src",

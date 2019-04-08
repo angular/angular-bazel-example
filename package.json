@@ -22,6 +22,7 @@
         "rxjs": "6.4.0",
         "systemjs": "0.21.6",
         "tslib": "1.9.3",
+        "tslint": "^5.15.0",
         "zone.js": "0.9.0"
     },
     "devDependencies": {
@@ -43,6 +44,7 @@
         "husky": "0.14.3",
         "named-amd": "1.0.0",
         "protractor": "6.0.0",
+        "ts-morph": "^1.3.3",
         "typescript": "3.3.3333"
     },
     "scripts": {
@@ -60,7 +62,7 @@
         "bazel:lint-fix": "yarn bazel:format --lint=fix",
         "format": "git-clang-format",
         "precommit": "check-clang-format \"yarn format\"",
-        "generate:clean": "rimraf ./src/app/billing ./src/app/compute ./src/app/datastore ./src/app/functions ./src/app/logging ./src/app/monitoring ./src/app/networking ./src/app/registry ./src/app/storage ./src/app/support",
-        "generate": "node tools/generate.js"
+        "generate": "node tools/generator/index.js",
+        "generate:clean": "node tools/generator/index.js --clean"
     }
 }
