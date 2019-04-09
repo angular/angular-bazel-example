@@ -123,8 +123,7 @@ ng_module(
 
 module.exports.updateBuildFile = function updateBuildFile(file, { mappedFeatureList }) {
     const shouldAddTraillingComma = () => mappedFeatureList.length === 0 ? '' : ',';
-    const featuresList = `
-GENERATED_FEATURES = [
+    const featuresList = `GENERATED_FEATURES = [
     ${mappedFeatureList.join(',\n    ')}${shouldAddTraillingComma()}
 ]`
 
