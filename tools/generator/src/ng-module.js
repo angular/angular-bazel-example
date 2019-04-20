@@ -4,7 +4,6 @@ const { FEATURES } = require('./feature-names');
 const { humanize, routeLinkRegex } = require('./utils');
 
 module.exports.updateNgModule = function updateNgModule(ngAppModulePath = 'src/app/app.module.ts') {
-
   // 0-setup
   const project = new Project();
   project.addExistingSourceFiles(ngAppModulePath);
@@ -49,11 +48,10 @@ module.exports.updateNgModule = function updateNgModule(ngAppModulePath = 'src/a
   console.log(`UPDATE ${ngAppModulePath}`);
 
   project.saveSync();
+};
 
-}
-
-module.exports.removeRoutesFromNgModule = function removeRoutesFromNgModule(ngAppRoutingModulePath = 'src/app/app-routing.module.ts') {
-
+module.exports.removeRoutesFromNgModule = function removeRoutesFromNgModule(
+    ngAppRoutingModulePath = 'src/app/app-routing.module.ts') {
   // 0-setup
   const project = new Project();
   project.addExistingSourceFiles(ngAppRoutingModulePath);
@@ -89,19 +87,19 @@ module.exports.removeRoutesFromNgModule = function removeRoutesFromNgModule(ngAp
   console.log(`UPDATE ${ngAppRoutingModulePath}`);
 
   project.saveSync();
-}
+};
 
-module.exports.removeRoutesFromAppComponentHtml = function removeRoutesFromAppComponentHtml(file = 'src/app/app.component.html') {
-
+module.exports.removeRoutesFromAppComponentHtml = function removeRoutesFromAppComponentHtml(
+    file = 'src/app/app.component.html') {
   const appComponent = fs.readFileSync(file, { encoding: 'utf-8' });
 
   fs.writeFileSync(file, appComponent.replace(routeLinkRegex, ''));
 
   console.log(`UPDATE ${file}`);
+};
 
-}
-
-module.exports.updateRoutesInNgModule = function updateRoutesInNgModule(ngAppRoutingModulePath = 'src/app/app-routing.module.ts', { routes }) {
+module.exports.updateRoutesInNgModule = function updateRoutesInNgModule(
+    ngAppRoutingModulePath = 'src/app/app-routing.module.ts', {routes}) {
   // 0-setup
   const project = new Project();
   project.addExistingSourceFiles(ngAppRoutingModulePath);
@@ -141,11 +139,9 @@ module.exports.updateRoutesInNgModule = function updateRoutesInNgModule(ngAppRou
 
   console.log(`UPDATE ${ngAppRoutingModulePath}`);
   project.saveSync();
-
-}
+};
 
 module.exports.updateRoutesInFeatureModule = function updateRoutesInFeatureModule(file) {
-
   const originalFeatureModuleContent =
     fs.readFileSync(file, { encoding: 'utf-8' });
 
@@ -162,10 +158,11 @@ RouterModule.forChild([{path: '', component: IndexComponent}]),`)
       .replace(
         `from '@angular/common';`,
         `from '@angular/common';\nimport { RouterModule } from '@angular/router';`));
-}
+};
 
 
-module.exports.updateRoutesInAppComponentHtml = function updateRoutesInAppComponentHtml(file = 'src/app/app.component.html', { features }) {
+module.exports.updateRoutesInAppComponentHtml = function updateRoutesInAppComponentHtml(
+    file = 'src/app/app.component.html', {features}) {
   let appComponent =
     fs.readFileSync(file, { encoding: 'utf-8' });
 
@@ -180,9 +177,10 @@ module.exports.updateRoutesInAppComponentHtml = function updateRoutesInAppCompon
   fs.writeFileSync(file, appComponent);
 
   console.log(`UPDATE ${file}`);
-}
+};
 
-module.exports.updateNgModuleWithExtraDeps = function updateNgModuleWithExtraDeps(featureNgModule, { className }) {
+module.exports.updateNgModuleWithExtraDeps = function updateNgModuleWithExtraDeps(
+    featureNgModule, {className}) {
   // 0-setup
   const project = new Project();
   project.addExistingSourceFiles(featureNgModule);
@@ -215,5 +213,4 @@ module.exports.updateNgModuleWithExtraDeps = function updateNgModuleWithExtraDep
   console.log(`UPDATE ${featureNgModule}`);
 
   project.saveSync();
-
-}
+};

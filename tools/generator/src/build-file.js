@@ -127,8 +127,7 @@ module.exports.updateBuildFile = function updateBuildFile(file, { mappedFeatureL
     ${mappedFeatureList.join(',\n    ')}${shouldAddTraillingComma()}
 ]`
 
-    const originalRootBuildFileContent =
-        fs.readFileSync(file, { encoding: 'utf-8' });
+    const originalRootBuildFileContent = fs.readFileSync(file, {encoding: 'utf-8'});
 
     if (generatedFeaturesListInBuildFileRegex.test(originalRootBuildFileContent) === false) {
         console.error('ERROR', `couldn't find declaration 'GENERATED_FEATURES' in '${file}'.`);

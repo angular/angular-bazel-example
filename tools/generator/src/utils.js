@@ -26,5 +26,4 @@ module.exports.humanize = function humanize(str, removeSpaces = false) {
   }
 
   return str;
-
-}
+};

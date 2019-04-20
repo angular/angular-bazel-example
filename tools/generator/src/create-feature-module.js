@@ -9,7 +9,6 @@
 const { ng, ngFromTemplate } = require('./ng');
 const { writeModuleBuildFile, writeFeatureModuleBuildFile } = require('./build-file');
 const { referenceComponents } = require('./reference-components');
-const { FEATURES } = require('./feature-names');
 const { updateNgModuleWithExtraDeps, updateRoutesInFeatureModule } = require('./ng-module');
 
 let globalCmpIdx = 0;
