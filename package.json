@@ -52,7 +52,7 @@
         "serve-prod": "bazel run //src:prodserver",
         "e2e": "bazel test //e2e:all",
         "test": "bazel test //src/...",
-        "benchmark": "ibazel-benchmark-runner //src:devserver src/hello-world/hello-world.component.ts --url=http://localhost:5432",
+        "benchmark": "ibazel-benchmark-runner //src:devserver src/app/hello-world/hello-world.component.ts --url=http://localhost:5432",
         "postinstall": "ngc -p angular-metadata.tsconfig.json && yarn browserify-date-fns",
         "// browserify-date-fns": "for ts_devserver & ts_web_test_suite, create named UMD bundle of date-fns npm package with AMD name 'date-fns' and global name browserifyDateFns",
         "browserify-date-fns": "browserify -p [ named-amd --name date-fns ] node_modules/date-fns/index.js -s browserifyDateFns -o node_modules/date-fns/date-fns.umd.js",
