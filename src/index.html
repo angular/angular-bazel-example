@@ -1,12 +1,21 @@
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-8594346-33"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-8594346-33');
+    </script>
+    
     <meta charset="utf-8" />
     <title>ABC: Angular Buildtools Convergence</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
     <link rel="stylesheet" href="assets/landing.css" />
@@ -667,34 +676,6 @@
         ></app-homepage
       ></material-docs-app
     >
-    <script
-      async=""
-      src="https://www.google-analytics.com/analytics.js"
-    ></script
-    ><script>
-      // Note this is a customised version of the GA tracking snippet
-      // See the comments below for more info
-      (function(i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function() {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        ~i.name.indexOf("NG_DEFER_BOOTSTRAP") || // only load library if not running e2e tests
-          m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga"
-      );
-    </script>
     <div
       id="cdk-describedby-message-container"
       aria-hidden="true"
