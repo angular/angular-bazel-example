@@ -7,7 +7,9 @@
 This is part of the ABC project. The overall goal is to make it possible to
 develop Angular applications the same way we do at Google.
 
-Learn more about Bazel and Angular at http://bazel.angular.io
+Learn more about Bazel and Angular at https://bazel.angular.io
+
+This example is deployed at https://bazel.angular.io/example
 
 ## Guide to the example
 
