@@ -58,7 +58,8 @@ build:remote --jobs=100
 # See https://blog.bazel.build/2019/02/01/dynamic-spawn-scheduler.html
 # NB: this setting is experimental and can cause obscure build failures.
 # The Bazel team does not recommend using this in all projects.
-build:remote --experimental_spawn_scheduler
+# We can observe failures like Remote connection/protocol failed
+# build:remote --experimental_spawn_scheduler
 
 ##################################################
 # Load any settings specific to the current user.
