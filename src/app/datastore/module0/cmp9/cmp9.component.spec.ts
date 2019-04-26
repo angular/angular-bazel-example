@@ -1,7 +1,7 @@
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatPaginatorModule, MatSortModule, MatTableModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatRadioModule, MatSelectModule,} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import {Cmp9Component} from './cmp9.component';
@@ -17,9 +17,11 @@ describe('Cmp9Component', () => {
           imports: [
             NoopAnimationsModule,
             ReactiveFormsModule,
-            MatTableModule,
-            MatPaginatorModule,
-            MatSortModule,
+            MatButtonModule,
+            MatCardModule,
+            MatInputModule,
+            MatRadioModule,
+            MatSelectModule,
           ],
           schemas: [NO_ERRORS_SCHEMA]
         })
@@ -32,7 +34,10 @@ describe('Cmp9Component', () => {
     fixture.detectChanges();
   });
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
+  // Make the test more realistic by doing lots of assertions
+  for (let i = 0; i < 50; i++) {
+    it('should compile', () => {
+      expect(component).toBeTruthy();
+    });
+  }
 });

@@ -1,71 +1,96 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-/** Constants used to fill up our data base. */
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-  'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
-
-/**
- * @title Data table with sorting, pagination, and filtering.
- */
 @Component({
   selector: 'app-cmp38',
-  styleUrls: ['cmp38.component.scss'],
-  templateUrl: 'cmp38.component.html',
+  templateUrl: './cmp38.component.html',
+  styleUrls: ['./cmp38.component.scss']
 })
-export class Cmp38Component implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+export class Cmp38Component {
+  addressForm: FormGroup = this.fb.group({
+    company: null,
+    firstName: [null, Validators.required],
+    lastName: [null, Validators.required],
+    address: [null, Validators.required],
+    address2: null,
+    city: [null, Validators.required],
+    state: [null, Validators.required],
+    postalCode:
+        [
+          null,
+          Validators.compose(
+              [Validators.required, Validators.minLength(5), Validators.maxLength(5)])
+        ],
+    shipping: ['free', Validators.required]
+  });
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  hasUnitNumber = false;
 
-  constructor() {
-    // Create 1000 users
-    const users = Array.from({length: 1000}, (_, k) => createNewUser(k + 1));
+  states = [
+    {name: 'Alabama', abbreviation: 'AL'},
+    {name: 'Alaska', abbreviation: 'AK'},
+    {name: 'American Samoa', abbreviation: 'AS'},
+    {name: 'Arizona', abbreviation: 'AZ'},
+    {name: 'Arkansas', abbreviation: 'AR'},
+    {name: 'California', abbreviation: 'CA'},
+    {name: 'Colorado', abbreviation: 'CO'},
+    {name: 'Connecticut', abbreviation: 'CT'},
+    {name: 'Delaware', abbreviation: 'DE'},
+    {name: 'District Of Columbia', abbreviation: 'DC'},
+    {name: 'Federated States Of Micronesia', abbreviation: 'FM'},
+    {name: 'Florida', abbreviation: 'FL'},
+    {name: 'Georgia', abbreviation: 'GA'},
+    {name: 'Guam', abbreviation: 'GU'},
+    {name: 'Hawaii', abbreviation: 'HI'},
+    {name: 'Idaho', abbreviation: 'ID'},
+    {name: 'Illinois', abbreviation: 'IL'},
+    {name: 'Indiana', abbreviation: 'IN'},
+    {name: 'Iowa', abbreviation: 'IA'},
+    {name: 'Kansas', abbreviation: 'KS'},
+    {name: 'Kentucky', abbreviation: 'KY'},
+    {name: 'Louisiana', abbreviation: 'LA'},
+    {name: 'Maine', abbreviation: 'ME'},
+    {name: 'Marshall Islands', abbreviation: 'MH'},
+    {name: 'Maryland', abbreviation: 'MD'},
+    {name: 'Massachusetts', abbreviation: 'MA'},
+    {name: 'Michigan', abbreviation: 'MI'},
+    {name: 'Minnesota', abbreviation: 'MN'},
+    {name: 'Mississippi', abbreviation: 'MS'},
+    {name: 'Missouri', abbreviation: 'MO'},
+    {name: 'Montana', abbreviation: 'MT'},
+    {name: 'Nebraska', abbreviation: 'NE'},
+    {name: 'Nevada', abbreviation: 'NV'},
+    {name: 'New Hampshire', abbreviation: 'NH'},
+    {name: 'New Jersey', abbreviation: 'NJ'},
+    {name: 'New Mexico', abbreviation: 'NM'},
+    {name: 'New York', abbreviation: 'NY'},
+    {name: 'North Carolina', abbreviation: 'NC'},
+    {name: 'North Dakota', abbreviation: 'ND'},
+    {name: 'Northern Mariana Islands', abbreviation: 'MP'},
+    {name: 'Ohio', abbreviation: 'OH'},
+    {name: 'Oklahoma', abbreviation: 'OK'},
+    {name: 'Oregon', abbreviation: 'OR'},
+    {name: 'Palau', abbreviation: 'PW'},
+    {name: 'Pennsylvania', abbreviation: 'PA'},
+    {name: 'Puerto Rico', abbreviation: 'PR'},
+    {name: 'Rhode Island', abbreviation: 'RI'},
+    {name: 'South Carolina', abbreviation: 'SC'},
+    {name: 'South Dakota', abbreviation: 'SD'},
+    {name: 'Tennessee', abbreviation: 'TN'},
+    {name: 'Texas', abbreviation: 'TX'},
+    {name: 'Utah', abbreviation: 'UT'},
+    {name: 'Vermont', abbreviation: 'VT'},
+    {name: 'Virgin Islands', abbreviation: 'VI'},
+    {name: 'Virginia', abbreviation: 'VA'},
+    {name: 'Washington', abbreviation: 'WA'},
+    {name: 'West Virginia', abbreviation: 'WV'},
+    {name: 'Wisconsin', abbreviation: 'WI'},
+    {name: 'Wyoming', abbreviation: 'WY'}
+  ];
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(private fb: FormBuilder) {}
+
+  onSubmit() {
+    alert('Thanks!');
   }
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
 }

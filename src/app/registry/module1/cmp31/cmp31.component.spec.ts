@@ -1,7 +1,7 @@
-import {LayoutModule} from '@angular/cdk/layout';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule,} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule, MatCardModule, MatInputModule, MatRadioModule, MatSelectModule,} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import {Cmp31Component} from './cmp31.component';
@@ -16,12 +16,12 @@ describe('Cmp31Component', () => {
           declarations: [Cmp31Component],
           imports: [
             NoopAnimationsModule,
-            LayoutModule,
+            ReactiveFormsModule,
             MatButtonModule,
             MatCardModule,
-            MatGridListModule,
-            MatIconModule,
-            MatMenuModule,
+            MatInputModule,
+            MatRadioModule,
+            MatSelectModule,
           ],
           schemas: [NO_ERRORS_SCHEMA]
         })
@@ -34,7 +34,10 @@ describe('Cmp31Component', () => {
     fixture.detectChanges();
   });
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
+  // Make the test more realistic by doing lots of assertions
+  for (let i = 0; i < 50; i++) {
+    it('should compile', () => {
+      expect(component).toBeTruthy();
+    });
+  }
 });
