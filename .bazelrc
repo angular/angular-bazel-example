@@ -48,7 +48,11 @@ build:remote --host_platform=//tools:rbe_ubuntu1604-angular
 build:remote --platforms=//tools:rbe_ubuntu1604-angular
 
 # Remote instance.
-build:remote --remote_instance_name=projects/rbe-shared-demo/instances/default_instance
+# rbe-shared-demo has 500 2-core workers
+# rbe-shared-demo2 has 100 8-core workers
+build:remote --remote_instance_name=projects/rbe-shared-demo2/instances/default_instance
+# Allow Bazel to consume all the workers
+build:remote --jobs=100
 
 # Schedule actions both locally and remote, take the faster one
 # See https://blog.bazel.build/2019/02/01/dynamic-spawn-scheduler.html
