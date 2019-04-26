@@ -32,7 +32,10 @@ describe('__Name__Component', () => {
     fixture.detectChanges();
   });
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
+  // Make the test more realistic by doing lots of assertions
+  for (let i = 0; i < 50; i++) {
+    it('should compile', () => {
+      expect(component).toBeTruthy();
+    });
+  }
 });
