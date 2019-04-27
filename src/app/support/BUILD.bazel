@@ -13,8 +13,8 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "support",
     srcs = [
-        "index/index.component.ts",
         "support.module.ts",
+        "index/index.component.ts",
     ],
     assets = [
         "index/index.component.html",
@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/support/module0",
         "//src/app/support/module1",
+        "//src/app/support/module2",
+        "//src/app/support/module3",
+        "//src/app/support/module4",
+        "//src/app/support/module5",
+        "//src/app/support/module6",
+        "//src/app/support/module7",
+        "//src/app/support/module8",
+        "//src/app/support/module9",
     ],
 )
+    

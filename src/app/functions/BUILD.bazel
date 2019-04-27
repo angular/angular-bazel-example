@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/functions/module0",
         "//src/app/functions/module1",
+        "//src/app/functions/module2",
+        "//src/app/functions/module3",
+        "//src/app/functions/module4",
+        "//src/app/functions/module5",
+        "//src/app/functions/module6",
+        "//src/app/functions/module7",
+        "//src/app/functions/module8",
+        "//src/app/functions/module9",
     ],
 )
+    

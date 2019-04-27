@@ -13,8 +13,8 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "logging",
     srcs = [
-        "index/index.component.ts",
         "logging.module.ts",
+        "index/index.component.ts",
     ],
     assets = [
         "index/index.component.html",
@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/logging/module0",
         "//src/app/logging/module1",
+        "//src/app/logging/module2",
+        "//src/app/logging/module3",
+        "//src/app/logging/module4",
+        "//src/app/logging/module5",
+        "//src/app/logging/module6",
+        "//src/app/logging/module7",
+        "//src/app/logging/module8",
+        "//src/app/logging/module9",
     ],
 )
+    

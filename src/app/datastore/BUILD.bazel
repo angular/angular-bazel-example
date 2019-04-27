@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/datastore/module0",
         "//src/app/datastore/module1",
+        "//src/app/datastore/module2",
+        "//src/app/datastore/module3",
+        "//src/app/datastore/module4",
+        "//src/app/datastore/module5",
+        "//src/app/datastore/module6",
+        "//src/app/datastore/module7",
+        "//src/app/datastore/module8",
+        "//src/app/datastore/module9",
     ],
 )
+    

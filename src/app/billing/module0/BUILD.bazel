@@ -16,6 +16,46 @@ sass_binary(
     src = "cmp1/cmp1.component.scss",
 )
 
+sass_binary(
+    name = "module2_styles",
+    src = "cmp2/cmp2.component.scss",
+)
+
+sass_binary(
+    name = "module3_styles",
+    src = "cmp3/cmp3.component.scss",
+)
+
+sass_binary(
+    name = "module4_styles",
+    src = "cmp4/cmp4.component.scss",
+)
+
+sass_binary(
+    name = "module5_styles",
+    src = "cmp5/cmp5.component.scss",
+)
+
+sass_binary(
+    name = "module6_styles",
+    src = "cmp6/cmp6.component.scss",
+)
+
+sass_binary(
+    name = "module7_styles",
+    src = "cmp7/cmp7.component.scss",
+)
+
+sass_binary(
+    name = "module8_styles",
+    src = "cmp8/cmp8.component.scss",
+)
+
+sass_binary(
+    name = "module9_styles",
+    src = "cmp9/cmp9.component.scss",
+)
+
 # We don't import from these, but the generated ngfactory code will
 NG_FACTORY_ADDED_IMPORTS = [
     "@npm//@angular/cdk",
@@ -28,13 +68,37 @@ ng_module(
     srcs = [
         "cmp0/cmp0.component.ts",
         "cmp1/cmp1.component.ts",
+        "cmp2/cmp2.component.ts",
+        "cmp3/cmp3.component.ts",
+        "cmp4/cmp4.component.ts",
+        "cmp5/cmp5.component.ts",
+        "cmp6/cmp6.component.ts",
+        "cmp7/cmp7.component.ts",
+        "cmp8/cmp8.component.ts",
+        "cmp9/cmp9.component.ts",
         "module0.module.ts",
     ],
     assets = [
         ":module0_styles",
         ":module1_styles",
+        ":module2_styles",
+        ":module3_styles",
+        ":module4_styles",
+        ":module5_styles",
+        ":module6_styles",
+        ":module7_styles",
+        ":module8_styles",
+        ":module9_styles",
         "cmp0/cmp0.component.html",
         "cmp1/cmp1.component.html",
+        "cmp2/cmp2.component.html",
+        "cmp3/cmp3.component.html",
+        "cmp4/cmp4.component.html",
+        "cmp5/cmp5.component.html",
+        "cmp6/cmp6.component.html",
+        "cmp7/cmp7.component.html",
+        "cmp8/cmp8.component.html",
+        "cmp9/cmp9.component.html",
     ],
     tsconfig = "//src:tsconfig.json",
     deps = [
@@ -80,3 +144,4 @@ ts_web_test_suite(
         "//src:rxjs_umd_modules",
     ],
 )
+        

@@ -1,0 +1,147 @@
+# Generated BUILD file, see /tools/generator
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+load("@npm_bazel_karma//:defs.bzl", "ts_web_test_suite")
+load("@npm_bazel_typescript//:defs.bzl", "ts_library")
+
+package(default_visibility = ["//:__subpackages__"])
+
+sass_binary(
+    name = "module0_styles",
+    src = "cmp180/cmp180.component.scss",
+)
+
+sass_binary(
+    name = "module1_styles",
+    src = "cmp181/cmp181.component.scss",
+)
+
+sass_binary(
+    name = "module2_styles",
+    src = "cmp182/cmp182.component.scss",
+)
+
+sass_binary(
+    name = "module3_styles",
+    src = "cmp183/cmp183.component.scss",
+)
+
+sass_binary(
+    name = "module4_styles",
+    src = "cmp184/cmp184.component.scss",
+)
+
+sass_binary(
+    name = "module5_styles",
+    src = "cmp185/cmp185.component.scss",
+)
+
+sass_binary(
+    name = "module6_styles",
+    src = "cmp186/cmp186.component.scss",
+)
+
+sass_binary(
+    name = "module7_styles",
+    src = "cmp187/cmp187.component.scss",
+)
+
+sass_binary(
+    name = "module8_styles",
+    src = "cmp188/cmp188.component.scss",
+)
+
+sass_binary(
+    name = "module9_styles",
+    src = "cmp189/cmp189.component.scss",
+)
+
+# We don't import from these, but the generated ngfactory code will
+NG_FACTORY_ADDED_IMPORTS = [
+    "@npm//@angular/cdk",
+    "@npm//@angular/material",
+    "@npm//@angular/forms",
+]
+
+ng_module(
+    name = "module8",
+    srcs = [
+        "cmp180/cmp180.component.ts",
+        "cmp181/cmp181.component.ts",
+        "cmp182/cmp182.component.ts",
+        "cmp183/cmp183.component.ts",
+        "cmp184/cmp184.component.ts",
+        "cmp185/cmp185.component.ts",
+        "cmp186/cmp186.component.ts",
+        "cmp187/cmp187.component.ts",
+        "cmp188/cmp188.component.ts",
+        "cmp189/cmp189.component.ts",
+        "module8.module.ts",
+    ],
+    assets = [
+        ":module0_styles",
+        ":module1_styles",
+        ":module2_styles",
+        ":module3_styles",
+        ":module4_styles",
+        ":module5_styles",
+        ":module6_styles",
+        ":module7_styles",
+        ":module8_styles",
+        ":module9_styles",
+        "cmp180/cmp180.component.html",
+        "cmp181/cmp181.component.html",
+        "cmp182/cmp182.component.html",
+        "cmp183/cmp183.component.html",
+        "cmp184/cmp184.component.html",
+        "cmp185/cmp185.component.html",
+        "cmp186/cmp186.component.html",
+        "cmp187/cmp187.component.html",
+        "cmp188/cmp188.component.html",
+        "cmp189/cmp189.component.html",
+    ],
+    tsconfig = "//src:tsconfig.json",
+    deps = [
+        "@npm//@angular/common",
+        "@npm//@angular/core",
+        "//src/shared/material",
+    ] + NG_FACTORY_ADDED_IMPORTS,
+)
+
+ts_library(
+    name = "test_lib",
+    testonly = 1,
+    srcs = glob(["**/*.spec.ts"]),
+    tsconfig = "//src:tsconfig-test",
+    deps = [
+        ":module8",
+        "@npm//@angular/core",
+        "@npm//@angular/platform-browser",
+        "@npm//@angular/platform-browser-dynamic",
+        "@npm//@types/jasmine",
+        "@npm//@types/node",
+    ] + NG_FACTORY_ADDED_IMPORTS,
+)
+
+ts_web_test_suite(
+    name = "test",
+    # do not sort
+    bootstrap = [
+        "@npm//node_modules/zone.js:dist/zone-testing-bundle.js",
+        "@npm//node_modules/reflect-metadata:Reflect.js",
+    ],
+    browsers = [
+        "@io_bazel_rules_webtesting//browsers:chromium-local",
+        # TODO(gregmagolan): re-enable firefox testing once fixed
+        # See https://github.com/bazelbuild/rules_typescript/issues/296
+        #"@io_bazel_rules_webtesting//browsers:firefox-local",
+    ],
+    runtime_deps = [
+        "//src:initialize_testbed",
+    ],
+    deps = [
+        ":test_lib",
+        "//src:rxjs_umd_modules",
+    ],
+)
+        

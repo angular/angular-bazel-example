@@ -8,12 +8,52 @@ package(default_visibility = ["//:__subpackages__"])
 
 sass_binary(
     name = "module0_styles",
-    src = "cmp14/cmp14.component.scss",
+    src = "cmp310/cmp310.component.scss",
 )
 
 sass_binary(
     name = "module1_styles",
-    src = "cmp15/cmp15.component.scss",
+    src = "cmp311/cmp311.component.scss",
+)
+
+sass_binary(
+    name = "module2_styles",
+    src = "cmp312/cmp312.component.scss",
+)
+
+sass_binary(
+    name = "module3_styles",
+    src = "cmp313/cmp313.component.scss",
+)
+
+sass_binary(
+    name = "module4_styles",
+    src = "cmp314/cmp314.component.scss",
+)
+
+sass_binary(
+    name = "module5_styles",
+    src = "cmp315/cmp315.component.scss",
+)
+
+sass_binary(
+    name = "module6_styles",
+    src = "cmp316/cmp316.component.scss",
+)
+
+sass_binary(
+    name = "module7_styles",
+    src = "cmp317/cmp317.component.scss",
+)
+
+sass_binary(
+    name = "module8_styles",
+    src = "cmp318/cmp318.component.scss",
+)
+
+sass_binary(
+    name = "module9_styles",
+    src = "cmp319/cmp319.component.scss",
 )
 
 # We don't import from these, but the generated ngfactory code will
@@ -26,15 +66,39 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "module1",
     srcs = [
-        "cmp14/cmp14.component.ts",
-        "cmp15/cmp15.component.ts",
+        "cmp310/cmp310.component.ts",
+        "cmp311/cmp311.component.ts",
+        "cmp312/cmp312.component.ts",
+        "cmp313/cmp313.component.ts",
+        "cmp314/cmp314.component.ts",
+        "cmp315/cmp315.component.ts",
+        "cmp316/cmp316.component.ts",
+        "cmp317/cmp317.component.ts",
+        "cmp318/cmp318.component.ts",
+        "cmp319/cmp319.component.ts",
         "module1.module.ts",
     ],
     assets = [
         ":module0_styles",
         ":module1_styles",
-        "cmp14/cmp14.component.html",
-        "cmp15/cmp15.component.html",
+        ":module2_styles",
+        ":module3_styles",
+        ":module4_styles",
+        ":module5_styles",
+        ":module6_styles",
+        ":module7_styles",
+        ":module8_styles",
+        ":module9_styles",
+        "cmp310/cmp310.component.html",
+        "cmp311/cmp311.component.html",
+        "cmp312/cmp312.component.html",
+        "cmp313/cmp313.component.html",
+        "cmp314/cmp314.component.html",
+        "cmp315/cmp315.component.html",
+        "cmp316/cmp316.component.html",
+        "cmp317/cmp317.component.html",
+        "cmp318/cmp318.component.html",
+        "cmp319/cmp319.component.html",
     ],
     tsconfig = "//src:tsconfig.json",
     deps = [
@@ -80,3 +144,4 @@ ts_web_test_suite(
         "//src:rxjs_umd_modules",
     ],
 )
+        
