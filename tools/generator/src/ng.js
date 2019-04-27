@@ -1,14 +1,22 @@
-
-const { spawnSync } = require('child_process');
+let cli = require('@angular/cli/lib/cli');
+if ('default' in cli) {
+  cli = cli['default'];
+}
 const fs = require('fs');
 const { humanize } = require('./utils');
 
-module.exports.ng = function ng(...args) {
-  spawnSync('ng', args, {stdio: 'inherit'});
+async function ng(args) {
+  console.error(args);
+  return cli({cliArgs: args, inputStream: process.stdin, outputStream: process.stdout})
+      .catch((err) => {
+        console.error('Unknown error: ' + err.toString());
+        process.exit(127);
+      });
 };
+module.exports.ng = ng;
 
 const cmpIdx = 0;
-module.exports.ngFromTemplate = function ngFromTemplate(...args) {
+module.exports.ngFromTemplate = async function ngFromTemplate(...args) {
   const {featureName, componentName} = args.pop();
 
   // reconstruct the final component filepath
@@ -32,7 +40,7 @@ module.exports.ngFromTemplate = function ngFromTemplate(...args) {
   };
 
   // run ng and generate the component
-  spawnSync('ng', args, {stdio: 'inherit'});
+  await ng(args);
 
   // cycle through template directories (so the generation is stable)
   const templateName = templateTypes[cmpIdx % templateTypes.length];
