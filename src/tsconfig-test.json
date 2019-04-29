@@ -1,6 +1,21 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "types": ["jasmine"]
-    }
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  },
+  "files": [
+    "test.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "app/hello-world/hello-world.component.spec.ts"
+  ]
 }

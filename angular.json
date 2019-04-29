@@ -3,34 +3,65 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-bazel-example": {
+    "ngbazel": {
+      "projectType": "application",
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "architect": {
         "build": {
-          "builder": "@angular/bazel:build",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "targetLabel": "//src:prodapp",
-            "bazelCommand": "build"
-          }
-        },
-        "serve": {
-          "builder": "@angular/bazel:build",
-          "options": {
-            "targetLabel": "//src:devserver",
-            "bazelCommand": "run",
-            "watch": true
+            "outputPath": "dist/ngbazel",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "targetLabel": "//src:prodserver"
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "50mb",
+                  "maximumError": "60mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngbazel:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngbazel:build:production"
             }
           }
         },
@@ -41,55 +72,49 @@
           }
         },
         "test": {
-          "builder": "@angular/bazel:build",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "bazelCommand": "test",
-            "targetLabel": "//src/app/..."
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig-test.json",
+            "karmaConfig": "src/karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
           }
-        }
-      }
-    },
-    "ngbazel-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
+        },
         "e2e": {
-          "builder": "@angular/bazel:build",
+          "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "bazelCommand": "test",
-            "targetLabel": "//e2e:devserver_test"
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "ngbazel:serve"
           },
           "configurations": {
             "production": {
-              "targetLabel": "//e2e:prodserver_test"
+              "devServerTarget": "ngbazel:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
-    }
+    },
   },
   "defaultProject": "ngbazel"
-  
 }
