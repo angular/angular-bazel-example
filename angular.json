@@ -44,7 +44,7 @@
           "builder": "@angular/bazel:build",
           "options": {
             "bazelCommand": "test",
-            "targetLabel": "//src/..."
+            "targetLabel": "//src/app/..."
           }
         },
         "lint": {
