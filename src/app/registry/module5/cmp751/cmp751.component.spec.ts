@@ -35,7 +35,7 @@ describe('Cmp751Component', () => {
   });
 
   // Make the test more realistic by doing lots of assertions
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 5; i++) {
     it('should compile', () => {
       expect(component).toBeTruthy();
     });
