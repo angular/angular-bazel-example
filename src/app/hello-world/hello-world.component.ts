@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {shorten} from '@bazel/shorten';
+import {shorten} from '../../lib/shorten/shorten';
 import {format} from 'date-fns';
 
 @Component({
