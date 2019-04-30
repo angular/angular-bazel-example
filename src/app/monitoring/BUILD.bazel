@@ -13,8 +13,8 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "monitoring",
     srcs = [
-        "index/index.component.ts",
         "monitoring.module.ts",
+        "index/index.component.ts",
     ],
     assets = [
         "index/index.component.html",
@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/monitoring/module0",
         "//src/app/monitoring/module1",
+        "//src/app/monitoring/module2",
+        "//src/app/monitoring/module3",
+        "//src/app/monitoring/module4",
+        "//src/app/monitoring/module5",
+        "//src/app/monitoring/module6",
+        "//src/app/monitoring/module7",
+        "//src/app/monitoring/module8",
+        "//src/app/monitoring/module9",
     ],
 )
+    

@@ -11,11 +11,6 @@ sass_binary(
     src = "cmp0/cmp0.component.scss",
 )
 
-sass_binary(
-    name = "module1_styles",
-    src = "cmp1/cmp1.component.scss",
-)
-
 # We don't import from these, but the generated ngfactory code will
 NG_FACTORY_ADDED_IMPORTS = [
     "@npm//@angular/cdk",
@@ -27,14 +22,11 @@ ng_module(
     name = "module0",
     srcs = [
         "cmp0/cmp0.component.ts",
-        "cmp1/cmp1.component.ts",
         "module0.module.ts",
     ],
     assets = [
         ":module0_styles",
-        ":module1_styles",
         "cmp0/cmp0.component.html",
-        "cmp1/cmp1.component.html",
     ],
     tsconfig = "//src:tsconfig.json",
     deps = [
@@ -80,3 +72,4 @@ ts_web_test_suite(
         "//src:rxjs_umd_modules",
     ],
 )
+        

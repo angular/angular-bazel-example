@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/compute/module0",
         "//src/app/compute/module1",
+        "//src/app/compute/module2",
+        "//src/app/compute/module3",
+        "//src/app/compute/module4",
+        "//src/app/compute/module5",
+        "//src/app/compute/module6",
+        "//src/app/compute/module7",
+        "//src/app/compute/module8",
+        "//src/app/compute/module9",
     ],
 )
+    

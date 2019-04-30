@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/billing/module0",
         "//src/app/billing/module1",
+        "//src/app/billing/module2",
+        "//src/app/billing/module3",
+        "//src/app/billing/module4",
+        "//src/app/billing/module5",
+        "//src/app/billing/module6",
+        "//src/app/billing/module7",
+        "//src/app/billing/module8",
+        "//src/app/billing/module9",
     ],
 )
+    

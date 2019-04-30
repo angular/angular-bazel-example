@@ -13,8 +13,8 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "networking",
     srcs = [
-        "index/index.component.ts",
         "networking.module.ts",
+        "index/index.component.ts",
     ],
     assets = [
         "index/index.component.html",
@@ -26,5 +26,14 @@ ng_module(
         "@npm//@angular/router",
         "//src/app/networking/module0",
         "//src/app/networking/module1",
+        "//src/app/networking/module2",
+        "//src/app/networking/module3",
+        "//src/app/networking/module4",
+        "//src/app/networking/module5",
+        "//src/app/networking/module6",
+        "//src/app/networking/module7",
+        "//src/app/networking/module8",
+        "//src/app/networking/module9",
     ],
 )
+    
