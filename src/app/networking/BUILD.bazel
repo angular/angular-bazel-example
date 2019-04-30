@@ -24,7 +24,7 @@ ng_module(
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/router",
-        "//src/app/networking/module0",
-        "//src/app/networking/module1",
+        # "//src/app/networking/module0",
+        # "//src/app/networking/module1",
     ],
 )

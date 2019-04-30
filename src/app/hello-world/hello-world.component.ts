@@ -11,3 +11,4 @@ export class HelloWorldComponent {
   name: string = shorten('Adolph Blaine Wolfeschlegelsteinhausenbergerdorff, Senior ', 15);
   date: string = format(new Date(), 'MMMM D, YYYY');
 }
+

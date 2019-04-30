@@ -24,7 +24,7 @@ ng_module(
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/router",
-        "//src/app/registry/module0",
-        "//src/app/registry/module1",
+        # "//src/app/registry/module0",
+        # "//src/app/registry/module1",
     ],
 )
