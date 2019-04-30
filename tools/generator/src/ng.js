@@ -3,8 +3,11 @@ const { spawnSync } = require('child_process');
 const fs = require('fs');
 const { humanize } = require('./utils');
 
+const cli = require.resolve('@angular/cli/package.json');
+const ngPath = require('path').resolve(cli, '..', 'bin', 'ng');
+
 module.exports.ng = function ng(...args) {
-  spawnSync('ng', args, {stdio: 'inherit'});
+  spawnSync(ngPath, args, {stdio: 'inherit'});
 };
 
 const cmpIdx = 0;
@@ -32,7 +35,7 @@ module.exports.ngFromTemplate = function ngFromTemplate(...args) {
   };
 
   // run ng and generate the component
-  spawnSync('ng', args, {stdio: 'inherit'});
+  spawnSync(ngPath, args, {stdio: 'inherit'});
 
   // cycle through template directories (so the generation is stable)
   const templateName = templateTypes[cmpIdx % templateTypes.length];
