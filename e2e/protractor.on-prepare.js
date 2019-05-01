@@ -14,10 +14,12 @@ module.exports = function(config) {
   // selected port (given a port flag to pass to the server as an argument).
   // The port used is returned in serverSpec and the protractor serverUrl
   // is the configured.
-  const portFlag = config.server.endsWith('prodserver') ? '-p' : '-port';
-  return protractorUtils.runServer(config.workspace, config.server, portFlag, [])
+  const isProdserver = config.server.endsWith('prodserver');
+  return protractorUtils
+      .runServer(config.workspace, config.server, isProdserver ? '-p' : '-port', [])
       .then(serverSpec => {
-        const serverUrl = `http://localhost:${serverSpec.port}`;
+        // Example app is hosted under `/example` in the prodserver and under `/` in devserver
+        const serverUrl = `http://localhost:${serverSpec.port}` + (isProdserver ? '/example' : '');
         protractor.browser.baseUrl = serverUrl;
       });
 };

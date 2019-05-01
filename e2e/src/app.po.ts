@@ -2,7 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class AppPage {
   async navigateTo() {
-    await browser.get('/hello');
+    await browser.get(browser.baseUrl + '/hello');
     return browser.waitForAngular();
   }
 

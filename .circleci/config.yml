@@ -71,6 +71,9 @@ jobs:
       - run: yarn ng test
       - run: yarn ng e2e
 
+      # Also run prodserver test which is not covered by `ng e2e`
+      - run: yarn bazel test //e2e:prodserver_test
+
       - store_artifacts:
           path: dist/bin/src/bundle.min.js
           destination: bundle.min.js

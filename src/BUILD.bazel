@@ -197,7 +197,14 @@ web_package(
 history_server(
     name = "prodserver",
     data = [":prodapp"],
-    templated_args = ["src/prodapp"],
+    # '-a src/prodapp' will ask history-server to scan for all apps under the
+    # given folder this will result in the following auto-configuration:
+    #   /example => src/prodapp/example
+    #   /        => src/prodapp
+    templated_args = [
+        "-a",
+        "src/prodapp",
+    ],
 )
 
 nodejs_image(
