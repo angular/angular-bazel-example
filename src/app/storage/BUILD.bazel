@@ -13,8 +13,8 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "storage",
     srcs = [
-        "index/index.component.ts",
         "storage.module.ts",
+        "index/index.component.ts",
     ],
     assets = [
         "index/index.component.html",
@@ -24,7 +24,7 @@ ng_module(
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/router",
-        # "//src/app/storage/module0",
-        # "//src/app/storage/module1",
+        "//src/app/storage/module0",
     ],
 )
+    

@@ -20,12 +20,32 @@ import {HomeModule} from './home/home';
 //import {StorageModule} from './storage/storage.module';
 //import {SupportModule} from './support/support.module';
 import {todoReducer} from './todos/reducers/reducers';
+import { BillingModule } from './billing/billing.module';
+import { ComputeModule } from './compute/compute.module';
+import { DatastoreModule } from './datastore/datastore.module';
+import { FunctionsModule } from './functions/functions.module';
+import { LoggingModule } from './logging/logging.module';
+import { MonitoringModule } from './monitoring/monitoring.module';
+import { NetworkingModule } from './networking/networking.module';
+import { RegistryModule } from './registry/registry.module';
+import { StorageModule } from './storage/storage.module';
+import { SupportModule } from './support/support.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     AppRoutingModule, BrowserModule, BrowserAnimationsModule, MaterialModule, HomeModule,
-    StoreModule.forRoot({todoReducer}), 
+    StoreModule.forRoot({todoReducer}),
+    BillingModule,
+    ComputeModule,
+    DatastoreModule,
+    FunctionsModule,
+    LoggingModule,
+    MonitoringModule,
+    NetworkingModule,
+    RegistryModule,
+    StorageModule,
+    SupportModule, 
     //BillingModule, 
     //ComputeModule, 
     //DatastoreModule,

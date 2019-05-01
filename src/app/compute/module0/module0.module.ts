@@ -1,16 +1,16 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-
-import {MaterialModule} from '../../../shared/material/material.module';
-
-import {Cmp4Component} from './cmp4/cmp4.component';
-import {Cmp5Component} from './cmp5/cmp5.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Cmp1Component } from './cmp1/cmp1.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MaterialModule } from "../../../shared/material/material.module";
 
 @NgModule({
-  declarations: [Cmp4Component, Cmp5Component],
-  imports: [CommonModule, ReactiveFormsModule, MaterialModule],
-  exports: [Cmp4Component, Cmp5Component]
+  declarations: [Cmp1Component],
+  imports: [
+    CommonModule,
+      ReactiveFormsModule,
+      MaterialModule
+    ],
+  exports: [Cmp1Component]
 })
-export class Module0Module {
-}
+export class Module0Module { }

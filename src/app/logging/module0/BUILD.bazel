@@ -8,12 +8,7 @@ package(default_visibility = ["//:__subpackages__"])
 
 sass_binary(
     name = "module0_styles",
-    src = "cmp16/cmp16.component.scss",
-)
-
-sass_binary(
-    name = "module1_styles",
-    src = "cmp17/cmp17.component.scss",
+    src = "cmp4/cmp4.component.scss",
 )
 
 # We don't import from these, but the generated ngfactory code will
@@ -26,15 +21,12 @@ NG_FACTORY_ADDED_IMPORTS = [
 ng_module(
     name = "module0",
     srcs = [
-        "cmp16/cmp16.component.ts",
-        "cmp17/cmp17.component.ts",
+        "cmp4/cmp4.component.ts",
         "module0.module.ts",
     ],
     assets = [
         ":module0_styles",
-        ":module1_styles",
-        "cmp16/cmp16.component.html",
-        "cmp17/cmp17.component.html",
+        "cmp4/cmp4.component.html",
     ],
     tsconfig = "//src:tsconfig.json",
     deps = [
@@ -80,3 +72,4 @@ ts_web_test_suite(
         "//src:rxjs_umd_modules",
     ],
 )
+        
