@@ -10,78 +10,78 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('./home/home.ngfactory').then(m => m.HomeModuleNgFactory)
+    loadChildren: () => import('./home/home').then(m => m.HomeModule)
   },
   {
     path: 'hello',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./hello-world/hello-world.module.ngfactory').then(m => m.HelloWorldModuleNgFactory)
+        import('./hello-world/hello-world.module').then(m => m.HelloWorldModule)
   },
   {
     path: 'todos',
     pathMatch: 'full',
-    loadChildren: () => import('./todos/todos.module.ngfactory').then(m => m.TodosModuleNgFactory)
+    loadChildren: () => import('./todos/todos.module').then(m => m.TodosModule)
   },
   {
     path: 'billing',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./billing/billing.module.ngfactory').then(m => m.BillingModuleNgFactory)
+        import('./billing/billing.module').then(m => m.BillingModule)
   },
   {
     path: 'compute',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./compute/compute.module.ngfactory').then(m => m.ComputeModuleNgFactory)
+        import('./compute/compute.module').then(m => m.ComputeModule)
   },
   {
     path: 'datastore',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./datastore/datastore.module.ngfactory').then(m => m.DatastoreModuleNgFactory)
+        import('./datastore/datastore.module').then(m => m.DatastoreModule)
   },
   {
     path: 'functions',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./functions/functions.module.ngfactory').then(m => m.FunctionsModuleNgFactory)
+        import('./functions/functions.module').then(m => m.FunctionsModule)
   },
   {
     path: 'logging',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./logging/logging.module.ngfactory').then(m => m.LoggingModuleNgFactory)
+        import('./logging/logging.module').then(m => m.LoggingModule)
   },
   {
     path: 'monitoring',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./monitoring/monitoring.module.ngfactory').then(m => m.MonitoringModuleNgFactory)
+        import('./monitoring/monitoring.module').then(m => m.MonitoringModule)
   },
   {
     path: 'networking',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./networking/networking.module.ngfactory').then(m => m.NetworkingModuleNgFactory)
+        import('./networking/networking.module').then(m => m.NetworkingModule)
   },
   {
     path: 'registry',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./registry/registry.module.ngfactory').then(m => m.RegistryModuleNgFactory)
+        import('./registry/registry.module').then(m => m.RegistryModule)
   },
   {
     path: 'storage',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./storage/storage.module.ngfactory').then(m => m.StorageModuleNgFactory)
+        import('./storage/storage.module').then(m => m.StorageModule)
   },
   {
     path: 'support',
     pathMatch: 'full',
     loadChildren: () =>
-        import('./support/support.module.ngfactory').then(m => m.SupportModuleNgFactory)
+        import('./support/support.module').then(m => m.SupportModule)
   }
 ];
 
