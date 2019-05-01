@@ -1,9 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
+import {MaterialModule} from '../../shared/material/material.module';
 
 import {HelloWorldComponent} from './hello-world.component';
-import {HelloWorldModuleNgSummary} from './hello-world.module.ngsummary';
+//import {HelloWorldModuleNgSummary} from './hello-world.module.ngsummary';
 
 describe('BannerComponent (inline template)', () => {
   let comp: HelloWorldComponent;
@@ -13,8 +15,12 @@ describe('BannerComponent (inline template)', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HelloWorldComponent],  // declare the test component
-      aotSummaries: HelloWorldModuleNgSummary,
-      imports: [BrowserAnimationsModule],
+      //aotSummaries: HelloWorldModuleNgSummary,
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        MaterialModule,
+      ],
     });
     TestBed.compileComponents();
   }));
