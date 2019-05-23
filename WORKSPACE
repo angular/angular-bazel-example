@@ -5,7 +5,10 @@
 # ESModule imports (and TypeScript imports) can be absolute starting with the workspace name.
 # The name of the workspace should match the npm package where we publish, so that these
 # imports also make sense when referencing the published package.
-workspace(name = "angular_bazel_example")
+workspace(
+    name = "angular_bazel_example",
+    managed_directories = {"@npm": ["node_modules"]},
+)
 
 # These rules are built-into Bazel but we need to load them first to download more rules
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
@@ -14,16 +17,16 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 # Fetch rules_nodejs so we can install our npm dependencies
 http_archive(
     name = "build_bazel_rules_nodejs",
-    sha256 = "1db950bbd27fb2581866e307c0130983471d4c3cd49c46063a2503ca7b6770a4",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.29.0/rules_nodejs-0.29.0.tar.gz"],
+    sha256 = "abcf497e89cfc1d09132adfcd8c07526d026e162ae2cb681dcb896046417ce91",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.30.1/rules_nodejs-0.30.1.tar.gz"],
 )
 
 # Fetch sass rules for compiling sass files
 http_archive(
     name = "io_bazel_rules_sass",
-    sha256 = "e5316ee8a09d1cbb732d3938b400836bf94dba91a27476e9e27706c4c0edae1f",
-    strip_prefix = "rules_sass-1.17.2",
-    url = "https://github.com/bazelbuild/rules_sass/archive/1.17.2.zip",
+    sha256 = "4c87befcb17282b039ba8341df9a6cc45f461bf05776dcf35c7e40c7e79ce374",
+    strip_prefix = "rules_sass-3a4f31c74513ccfacce3f955b5c006352f7e9587",
+    url = "https://github.com/bazelbuild/rules_sass/archive/3a4f31c74513ccfacce3f955b5c006352f7e9587.zip",
 )
 
 # Check the bazel version and download npm dependencies
@@ -40,16 +43,12 @@ Try running `yarn bazel` instead.
     (If you did run that, check that you've got a fresh `yarn install`)
 
 """,
-    minimum_bazel_version = "0.21.0",
+    minimum_bazel_version = "0.26.0",
 )
 
 # Setup the Node.js toolchain & install our npm dependencies into @npm
 yarn_install(
     name = "npm",
-    data = [
-        # Needed because this tsconfig file is used in the "postinstall" script.
-        "//:angular-metadata.tsconfig.json",
-    ],
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
 )

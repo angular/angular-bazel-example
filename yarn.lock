@@ -174,29 +174,29 @@
   dependencies:
     tslib "^1.9.0"
 
-"@bazel/bazel-darwin_x64@0.25.1":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel-darwin_x64/-/bazel-darwin_x64-0.25.1.tgz#6526aba1cd912830595c3903ad29dfcb338114a3"
-  integrity sha512-VYPHaXZFlyl/1MOnUdByusox0RataI+dvQ37FiuuK9byFlcgCoIvhAx20nLK56tEhi/obXXaG2AO4w6rfOcgWg==
+"@bazel/bazel-darwin_x64@0.26.0-rc13":
+  version "0.26.0-rc13"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel-darwin_x64/-/bazel-darwin_x64-0.26.0-rc13.tgz#b580f470e2e221a3dd0e449c2b652ebfda661644"
+  integrity sha512-I1TvJuD49UtiE8yt8vRcejvG/ISX09MdFTXRIhHKnB+soRZF2zbUtqs0H4ugMK2fzb80T/QK3QmXbjSfcZbx2w==
 
-"@bazel/bazel-linux_x64@0.25.1":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel-linux_x64/-/bazel-linux_x64-0.25.1.tgz#7f0d098725f0bde4f0904b72b64ea2f22fdbf2bc"
-  integrity sha512-i+b6RSWn5qGZlrcct+lpWVHd3sen7UaBqQyi/0Rn+J72XCIbY2AFoi+j6SlCXb3EFltxJBCHKJHZqEtkP79bDQ==
+"@bazel/bazel-linux_x64@0.26.0-rc13":
+  version "0.26.0-rc13"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel-linux_x64/-/bazel-linux_x64-0.26.0-rc13.tgz#2b794b23b8954fe08b3c5f8a8b50c69e26ac08aa"
+  integrity sha512-VIyJMR18ItGZFwMSRxYU+5bTohsn45yfrpjFdVP+aVcIl2c4KuPAyM4dTKwjGUUeDDGUDMb809PjyTgsRe5x3w==
 
-"@bazel/bazel-win32_x64@0.25.1":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel-win32_x64/-/bazel-win32_x64-0.25.1.tgz#43bdec698fbb7babfd02470a1dcab384f01f9d6b"
-  integrity sha512-LM/rY8cxioCFe0m6WxdfvZ6pbD9eKzp69C1BhIkoESyp0IDLDvnLJ6uvs722e3hl8Zj1sIEIbiCwrYk33lPkTg==
+"@bazel/bazel-win32_x64@0.26.0-rc13":
+  version "0.26.0-rc13"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel-win32_x64/-/bazel-win32_x64-0.26.0-rc13.tgz#fe862c700c35a41d43ee3223f8dbe5f735395e68"
+  integrity sha512-8nAntbZTFp9xv504L5u4aLMKgkq2rhgqW+fJwcNmVz9Wg3cKVMxl+G49cYzImGxqrv9MFLe3lD1ldBYdoEvNqg==
 
-"@bazel/bazel@0.25.1":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel/-/bazel-0.25.1.tgz#fc76ad9c07371e9ce0bf5bde6ff61cf8abbeaefd"
-  integrity sha512-HM2IsX9M4siW8b2AHZP4ixtT1NH9H74M0/DJfh0hr15NlivTapvkVQSfEfW57CCMfkuMcDjvfJQK+KzfuVyMgw==
+"@bazel/bazel@^0.26.0-rc13":
+  version "0.26.0-rc13"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel/-/bazel-0.26.0-rc13.tgz#42060745c43f1f5b84d1b46be112f3caf8b49710"
+  integrity sha512-V+z0ybU+aXHoXSKK0Z1kq/6QLct+NAMFH21FFxwEaEKvAd4RT2N2+FCBJh4BNjWH62ONRI33znRxy9avabuenQ==
   optionalDependencies:
-    "@bazel/bazel-darwin_x64" "0.25.1"
-    "@bazel/bazel-linux_x64" "0.25.1"
-    "@bazel/bazel-win32_x64" "0.25.1"
+    "@bazel/bazel-darwin_x64" "0.26.0-rc13"
+    "@bazel/bazel-linux_x64" "0.26.0-rc13"
+    "@bazel/bazel-win32_x64" "0.26.0-rc13"
 
 "@bazel/benchmark-runner@0.1.0":
   version "0.1.0"
@@ -242,10 +242,10 @@
   resolved "https://registry.yarnpkg.com/@bazel/ibazel/-/ibazel-0.3.1.tgz#5f02f208f138e581bbdb1534d5c013d7a0ac9799"
   integrity sha1-XwLyCPE45YG72xU01cAT16Csl5k=
 
-"@bazel/karma@0.29.0":
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/@bazel/karma/-/karma-0.29.0.tgz#bcb79750ecec3884136e584b36e3cd3b610455a5"
-  integrity sha512-dSN7iBAz0srGkJxAP7NAyWVdCWoUHBxlGL7YxHObV3kDTwWUDKWKcEwuOC7MTMSQtYM4WcVVvfCO3HhXKUxhPg==
+"@bazel/karma@~0.30.0":
+  version "0.30.1"
+  resolved "https://registry.yarnpkg.com/@bazel/karma/-/karma-0.30.1.tgz#5ef08da0abfa5b7e8536a7242a3fc60bf60ed143"
+  integrity sha512-nDy/Hct/XO1XY8zQeNBVBbff3F5XwRf/TTIM21VksqN0bwn6eVkAm6Pwc96eB/FQ75Xq60vib7v/K5MYjs3EGg==
   dependencies:
     jasmine-core "2.8.0"
     karma "^4.0.0"
@@ -259,10 +259,10 @@
     semver "5.6.0"
     tmp "0.0.33"
 
-"@bazel/typescript@0.29.0":
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/@bazel/typescript/-/typescript-0.29.0.tgz#d276afe034f37b5f35ee1369c99dc33c637fc9f6"
-  integrity sha512-Dp5ucrE1vXTORGiwEi6Ur4dlICpLsmZ1dscsEQT4ywF7xTT0/NmIG0ecBghiCFPFQTxt1D05TR3SH06rPtTAew==
+"@bazel/typescript@~0.30.0":
+  version "0.30.1"
+  resolved "https://registry.yarnpkg.com/@bazel/typescript/-/typescript-0.30.1.tgz#58cf290a366418d713b29123d9c337da6500d764"
+  integrity sha512-tljA8Nv0of08L+I3cipJ096ni3548Qb4ZJS3bAV/pxPsEub4MB48TlASkWjQRp46oPUS3TrAes2kRQCF+kCxFg==
   dependencies:
     protobufjs "6.8.8"
     semver "5.6.0"
