@@ -1,5 +1,23 @@
 {
   "extends": [
     "config:base"
+  ],
+  "pinVersions": false,
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "^@angular\/.*"
+      ],
+      "groupName": "angular",
+      "pinVersions": false
+    },
+    {
+      "packagePatterns": [
+        "^@bazel\/.*",
+        "build_bazel_rules_nodejs"
+      ],
+      "groupName": "bazel",
+      "pinVersions": false
+    }
   ]
 }
