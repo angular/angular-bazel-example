@@ -2,7 +2,7 @@
     "name": "angular-bazel-example",
     "private": true,
     "description": "Demo of building Angular apps with Bazel",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "engines": {
         "node": ">=10.9.0 <11.0.0",
         "yarn": ">=1.9.2 <2.0.0"
