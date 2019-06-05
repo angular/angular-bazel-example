@@ -82,10 +82,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/bazel@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-8.0.0.tgz#eead29b37f0fa6b469c735165a19d688a4a0106c"
-  integrity sha512-KnuE2yB9VBFetxoBVbnBqdYzeAw2O00ed9a+KPg1YZbbaXc7M5xXBALQ9jyohjDTBzUB5EQ4SrgTeccfJxjKIg==
+"@angular/bazel@8.1.0-next.1":
+  version "8.1.0-next.1"
+  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-8.1.0-next.1.tgz#e4c325290189ad737329750c67f075393804d51a"
+  integrity sha512-EPON12FcRr3Ruqp/aKl2uSIUOni1r5B85NrjtrECVRlRXNFJCQp1e52sr5+YLr5U7n7VcpHwXf3kckUMtwGlyg==
   dependencies:
     "@angular-devkit/architect" "^0.800.0-beta.15"
     "@angular-devkit/core" "^8.0.0-beta.15"
