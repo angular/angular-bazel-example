@@ -82,10 +82,9 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/bazel@8.1.0-next.1":
-  version "8.1.0-next.1"
-  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-8.1.0-next.1.tgz#e4c325290189ad737329750c67f075393804d51a"
-  integrity sha512-EPON12FcRr3Ruqp/aKl2uSIUOni1r5B85NrjtrECVRlRXNFJCQp1e52sr5+YLr5U7n7VcpHwXf3kckUMtwGlyg==
+"@angular/bazel@angular/bazel-builds#8.0.0+762fc28":
+  version "8.0.0"
+  resolved "https://codeload.github.com/angular/bazel-builds/tar.gz/8ee0bcbe2fca7ec66aeb71b0dd6fbeb58b1119c9"
   dependencies:
     "@angular-devkit/architect" "^0.800.0-beta.15"
     "@angular-devkit/core" "^8.0.0-beta.15"
@@ -5127,7 +5126,7 @@ shelljs@0.8.2:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
-shelljs@0.8.3, shelljs@^0.8.1:
+shelljs@^0.8.1:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
   integrity sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==

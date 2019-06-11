@@ -25,7 +25,7 @@
         "zone.js": "0.9.1"
     },
     "devDependencies": {
-        "@angular/bazel": "8.1.0-next.1",
+        "@angular/bazel": "angular/bazel-builds#8.0.0+762fc28",
         "@angular/cli": "8.0.1",
         "@angular/compiler": "8.0.0",
         "@angular/compiler-cli": "8.0.0",
@@ -42,7 +42,6 @@
         "firebase-tools": "6.11.0",
         "husky": "0.14.3",
         "protractor": "6.0.0",
-        "shelljs": "0.8.3",
         "ts-morph": "2.1.2",
         "typescript": "3.4.5"
     },
@@ -54,7 +53,7 @@
         "e2e": "bazel test //e2e:all",
         "test": "bazel test //src/...",
         "benchmark": "ibazel-benchmark-runner //src:devserver src/app/hello-world/hello-world.component.ts --url=http://localhost:5432",
-        "postinstall": "ngc -p angular-metadata.tsconfig.json && node --preserve-symlinks --preserve-symlinks-main ./postinstall-patches.js",
+        "postinstall": "ngc -p angular-metadata.tsconfig.json",
         "bazel:format": "find . -type f \\( -name \"*.bzl\" -or -name WORKSPACE -or -name BUILD -or -name BUILD.bazel \\) ! -path \"*/node_modules/*\" | xargs buildifier -v --warnings=attr-cfg,attr-license,attr-non-empty,attr-output-default,attr-single-file,constant-glob,ctx-actions,ctx-args,depset-iteration,depset-union,dict-concatenation,duplicated-name,filetype,git-repository,http-archive,integer-division,load,load-on-top,native-build,native-package,out-of-order-load,output-group,package-name,package-on-top,positional-args,redefined-variable,repository-name,same-origin-load,string-iteration,unsorted-dict-items,unused-variable",
         "bazel:lint": "yarn bazel:format --lint=warn",
         "bazel:lint-fix": "yarn bazel:format --lint=fix",
