@@ -155,7 +155,7 @@ rollup_bundle(
         "src/app/hello-world/hello-world.module.ngfactory",
         "src/app/todos/todos.module.ngfactory",
     ] + GENERATED_FEATURES,
-    entry_point = "src/main.prod",
+    entry_point = ":main.prod.ts",
     deps = [
         "//src",
         "@npm//@angular/common",
@@ -210,7 +210,7 @@ history_server(
 nodejs_image(
     name = "nodejs_image",
     data = [":prodapp"],
-    entry_point = "history-server/modules/cli.js",
+    entry_point = "@history-server_runtime_deps//node_modules/history-server:modules/cli.js",
     node_modules = "@history-server_runtime_deps//:node_modules",
     # Actions created by this rule are I/O-bound,
     # so there is no benefit to running them remotely
