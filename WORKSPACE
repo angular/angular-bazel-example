@@ -17,23 +17,23 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 # Fetch rules_nodejs so we can install our npm dependencies
 http_archive(
     name = "build_bazel_rules_nodejs",
-    sha256 = "e04a82a72146bfbca2d0575947daa60fda1878c8d3a3afe868a8ec39a6b968bb",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.31.1/rules_nodejs-0.31.1.tar.gz"],
+    sha256 = "6d4edbf28ff6720aedf5f97f9b9a7679401bf7fca9d14a0fff80f644a99992b4",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.32.2/rules_nodejs-0.32.2.tar.gz"],
 )
 
 # Fetch sass rules for compiling sass files
 http_archive(
     name = "io_bazel_rules_sass",
-    strip_prefix = "rules_sass-9a00e557c32ac0f26e5d3c66d1d17316874027b3",
-    url = "https://github.com/bazelbuild/rules_sass/archive/9a00e557c32ac0f26e5d3c66d1d17316874027b3.zip",
+    sha256 = "4f05239080175a3f4efa8982d2b7775892d656bb47e8cf56914d5f9441fb5ea6",
+    strip_prefix = "rules_sass-86ca977cf2a8ed481859f83a286e164d07335116",
+    url = "https://github.com/bazelbuild/rules_sass/archive/86ca977cf2a8ed481859f83a286e164d07335116.zip",
 )
 
 # Check the bazel version and download npm dependencies
 load("@build_bazel_rules_nodejs//:defs.bzl", "check_bazel_version", "yarn_install")
 
-# Bazel version must be at least v0.21.0 because:
-#   - 0.21.0 Using --incompatible_strict_action_env flag fixes cache when running `yarn bazel`
-#            (see https://github.com/angular/angular/issues/27514#issuecomment-451438271)
+# Bazel version must be at least the following version because:
+#   - 0.27.0 Adds managed directories support
 check_bazel_version(
     message = """
 You no longer need to install Bazel on your machine.
@@ -42,7 +42,7 @@ Try running `yarn bazel` instead.
     (If you did run that, check that you've got a fresh `yarn install`)
 
 """,
-    minimum_bazel_version = "0.26.0",
+    minimum_bazel_version = "0.27.0",
 )
 
 # Setup the Node.js toolchain & install our npm dependencies into @npm

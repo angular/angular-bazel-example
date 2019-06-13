@@ -2,11 +2,12 @@
 const fs = require('fs');
 const { generatedFeaturesListInBuildFileRegex } = require('./utils');
 
-module.exports.writeModuleBuildFile = function writeModuleBuildFile(file, { modIdx, scssFileAcc, tsFileAcc, htmlFileAcc }) {
-
-    fs.writeFileSync(file,
-        // Make Buildifier happy, don't format line below.
-        `# Generated BUILD file, see /tools/generator
+module.exports.writeModuleBuildFile =
+    function writeModuleBuildFile(file, {modIdx, scssFileAcc, tsFileAcc, htmlFileAcc}) {
+  fs.writeFileSync(
+      file,
+      // Make Buildifier happy, don't format line below.
+      `# Generated BUILD file, see /tools/generator
 load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
 load("@npm_angular_bazel//:index.bzl", "ng_module")
 load("@npm_bazel_karma//:defs.bzl", "ts_web_test_suite")
@@ -14,9 +15,12 @@ load("@npm_bazel_typescript//:defs.bzl", "ts_library")
 
 package(default_visibility = ["//:__subpackages__"])
 
-${scssFileAcc.map((s, idx) =>
-            // Make Buildifier happy, don't format line below.
-            `sass_binary(
+${
+          scssFileAcc
+              .map(
+                  (s, idx) =>
+                      // Make Buildifier happy, don't format line below.
+                  `sass_binary(
     name = "module${idx}_styles",
     src = "${s}",
 )`).join('\n\n')}
@@ -65,8 +69,8 @@ ts_web_test_suite(
     name = "test",
     # do not sort
     bootstrap = [
-        "@npm//node_modules/zone.js:dist/zone-testing-bundle.js",
-        "@npm//node_modules/reflect-metadata:Reflect.js",
+        "@npm//:node_modules/zone.js/dist/zone-testing-bundle.js",
+        "@npm//:node_modules/reflect-metadata/Reflect.js",
     ],
     browsers = [
         "@io_bazel_rules_webtesting//browsers:chromium-local",
@@ -83,13 +87,14 @@ ts_web_test_suite(
     ],
 )
         `);
-
 }
 
-module.exports.writeFeatureModuleBuildFile = function writeFeatureModuleBuildFile(file, { name, featureModuleDeps }) {
-    fs.writeFileSync(file,
-        // Make Buildifier happy, don't format line below.
-        `# Generated BUILD file, see /tools/generator
+    module.exports.writeFeatureModuleBuildFile =
+        function writeFeatureModuleBuildFile(file, {name, featureModuleDeps}) {
+  fs.writeFileSync(
+      file,
+      // Make Buildifier happy, don't format line below.
+      `# Generated BUILD file, see /tools/generator
 load("@npm_angular_bazel//:index.bzl", "ng_module")
 
 package(default_visibility = ["//:__subpackages__"])
@@ -121,23 +126,21 @@ ng_module(
     `);
 }
 
-module.exports.updateBuildFile = function updateBuildFile(file, { mappedFeatureList }) {
-    const shouldAddTraillingComma = () => mappedFeatureList.length === 0 ? '' : ',';
-    const featuresList = `GENERATED_FEATURES = [
+        module.exports.updateBuildFile = function updateBuildFile(file, {mappedFeatureList}) {
+  const shouldAddTraillingComma = () => mappedFeatureList.length === 0 ? '' : ',';
+  const featuresList = `GENERATED_FEATURES = [
     ${mappedFeatureList.join(',\n    ')}${shouldAddTraillingComma()}
 ]`
 
-    const originalRootBuildFileContent = fs.readFileSync(file, {encoding: 'utf-8'});
+  const originalRootBuildFileContent = fs.readFileSync(file, {encoding: 'utf-8'});
 
-    if (generatedFeaturesListInBuildFileRegex.test(originalRootBuildFileContent) === false) {
-        console.error('ERROR', `couldn't find declaration 'GENERATED_FEATURES' in '${file}'.`);
-        process.exit(1);
-    }
+  if (generatedFeaturesListInBuildFileRegex.test(originalRootBuildFileContent) === false) {
+    console.error('ERROR', `couldn't find declaration 'GENERATED_FEATURES' in '${file}'.`);
+    process.exit(1);
+  }
 
-    console.log(`UPDATE ${file}`);
-    fs.writeFileSync(
-        file,
-        originalRootBuildFileContent.replace(generatedFeaturesListInBuildFileRegex, featuresList)
-    )
-
+  console.log(`UPDATE ${file}`);
+  fs.writeFileSync(
+      file,
+      originalRootBuildFileContent.replace(generatedFeaturesListInBuildFileRegex, featuresList))
 }

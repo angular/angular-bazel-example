@@ -63,8 +63,8 @@ ts_web_test_suite(
     name = "test",
     # do not sort
     bootstrap = [
-        "@npm//node_modules/zone.js:dist/zone-testing-bundle.js",
-        "@npm//node_modules/reflect-metadata:Reflect.js",
+        "@npm//:node_modules/zone.js/dist/zone-testing-bundle.js",
+        "@npm//:node_modules/reflect-metadata/Reflect.js",
     ],
     browsers = [
         "@io_bazel_rules_webtesting//browsers:chromium-local",
