@@ -17,8 +17,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 # Fetch rules_nodejs so we can install our npm dependencies
 http_archive(
     name = "build_bazel_rules_nodejs",
-    sha256 = "937b9f3dd2cc95941d9989e1292656c57912f096a1541d7dc17683622501fe11",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.33.0/rules_nodejs-0.33.0.tar.gz"],
+    sha256 = "7c4a690268be97c96f04d505224ec4cb1ae53c2c2b68be495c9bd2634296a5cd",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.34.0/rules_nodejs-0.34.0.tar.gz"],
 )
 
 # Fetch sass rules for compiling sass files
@@ -57,7 +57,12 @@ load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
 
 install_bazel_dependencies()
 
-# Load karma dependencies
+# Load npm_bazel_protractor dependencies
+load("@npm_bazel_protractor//:package.bzl", "npm_bazel_protractor_dependencies")
+
+npm_bazel_protractor_dependencies()
+
+# Load npm_bazel_karma dependencies
 load("@npm_bazel_karma//:package.bzl", "rules_karma_dependencies")
 
 rules_karma_dependencies()
