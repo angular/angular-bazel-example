@@ -68,9 +68,7 @@ ts_web_test_suite(
     ],
     browsers = [
         "@io_bazel_rules_webtesting//browsers:chromium-local",
-        # TODO(gregmagolan): re-enable firefox testing once fixed
-        # See https://github.com/bazelbuild/rules_typescript/issues/296
-        #"@io_bazel_rules_webtesting//browsers:firefox-local",
+        "@io_bazel_rules_webtesting//browsers:firefox-local",
     ],
     runtime_deps = [
         "//src:initialize_testbed",
