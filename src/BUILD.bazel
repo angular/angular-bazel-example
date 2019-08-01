@@ -128,33 +128,8 @@ ts_devserver(
     deps = ["//src"],
 )
 
-# This list is auto-updated by /tools/generator
-# Make sure not to rename this variable
-GENERATED_FEATURES = [
-    "src/app/billing/billing.module.ngfactory",
-    "src/app/compute/compute.module.ngfactory",
-    "src/app/datastore/datastore.module.ngfactory",
-    "src/app/functions/functions.module.ngfactory",
-    "src/app/logging/logging.module.ngfactory",
-    "src/app/monitoring/monitoring.module.ngfactory",
-    "src/app/networking/networking.module.ngfactory",
-    "src/app/registry/registry.module.ngfactory",
-    "src/app/storage/storage.module.ngfactory",
-    "src/app/support/support.module.ngfactory",
-]
-
 rollup_bundle(
     name = "bundle",
-    # These Angular routes may be lazy-loaded at runtime.
-    # So we tell Rollup that it can put them in separate JS chunks
-    # (code-splitting) for faster application startup.
-    # In the future, we could automatically gather these from statically
-    # analyzing the Angular sources.
-    additional_entry_points = [
-        "src/app/home/home.ngfactory",
-        "src/app/hello-world/hello-world.module.ngfactory",
-        "src/app/todos/todos.module.ngfactory",
-    ] + GENERATED_FEATURES,
     entry_point = ":main.prod.ts",
     deps = [
         "//src",
