@@ -10,27 +10,22 @@ NG_FACTORY_ADDED_IMPORTS = [
     "@npm//@angular/forms",
 ]
 
-# This list is auto-updated by /tools/generator
-# Make sure not to rename this variable
-GENERATED_FEATURES = [
-    "//src/app/billing",
-    "//src/app/compute",
-    "//src/app/datastore",
-    "//src/app/functions",
-    "//src/app/logging",
-    "//src/app/monitoring",
-    "//src/app/networking",
-    "//src/app/registry",
-    "//src/app/storage",
-    "//src/app/support",
-]
-
 ng_module(
     name = "app",
     srcs = glob(["*.ts"]),
     assets = ["app.component.html"],
     tsconfig = "//src:tsconfig.json",
-    deps = NG_FACTORY_ADDED_IMPORTS + GENERATED_FEATURES + [
+    deps = NG_FACTORY_ADDED_IMPORTS + [
+        "//src/app/billing",
+        "//src/app/compute",
+        "//src/app/datastore",
+        "//src/app/functions",
+        "//src/app/logging",
+        "//src/app/monitoring",
+        "//src/app/networking",
+        "//src/app/registry",
+        "//src/app/storage",
+        "//src/app/support",
         "//src/app/hello-world",
         "//src/app/home",
         "//src/app/todos",

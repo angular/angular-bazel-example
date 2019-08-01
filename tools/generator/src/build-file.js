@@ -1,6 +1,5 @@
 
 const fs = require('fs');
-const { generatedFeaturesListInBuildFileRegex } = require('./utils');
 
 module.exports.writeModuleBuildFile =
     function writeModuleBuildFile(file, {modIdx, scssFileAcc, tsFileAcc, htmlFileAcc}) {
@@ -122,23 +121,4 @@ ng_module(
     ],
 )
     `);
-}
-
-        module.exports.updateBuildFile = function updateBuildFile(file, {mappedFeatureList}) {
-  const shouldAddTraillingComma = () => mappedFeatureList.length === 0 ? '' : ',';
-  const featuresList = `GENERATED_FEATURES = [
-    ${mappedFeatureList.join(',\n    ')}${shouldAddTraillingComma()}
-]`
-
-  const originalRootBuildFileContent = fs.readFileSync(file, {encoding: 'utf-8'});
-
-  if (generatedFeaturesListInBuildFileRegex.test(originalRootBuildFileContent) === false) {
-    console.error('ERROR', `couldn't find declaration 'GENERATED_FEATURES' in '${file}'.`);
-    process.exit(1);
-  }
-
-  console.log(`UPDATE ${file}`);
-  fs.writeFileSync(
-      file,
-      originalRootBuildFileContent.replace(generatedFeaturesListInBuildFileRegex, featuresList))
 }

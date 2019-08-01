@@ -1,13 +1,5 @@
 const { FEATURES } = require('./feature-names');
 
-// This will match:
-// GENERATED_FEATURES = [
-//   "file/path/to/module",
-//   ...
-// ]
-module.exports.generatedFeaturesListInBuildFileRegex =
-    /GENERATED_FEATURES[ =]+\[[\s"/a-z0-9,-.]*\]/;
-
 // This will match"
 // <a mat-list-item routerLink="/storage"><mat-icon>folder</mat-icon> Storage </a>
 module.exports.routeLinkRegex = new RegExp(`<a.*?routerLink="\/(${FEATURES.map(feature => feature.path).join('|')})">[\\w\\W\\s'"<>]+?<\/a>`, 'mg');
