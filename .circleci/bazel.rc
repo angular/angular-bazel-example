@@ -6,8 +6,8 @@
 # TODO: re-enable after we deal with 10m timeout on circleci
 #build --noshow_progress
 
-# Don't run manual tests
-test --test_tag_filters=-manual
+# Don't run tests that are not meant to be run on circleci
+test --test_tag_filters=-no-circleci
 
 # Print all the options that apply to the build.
 # This helps us diagnose which options override others

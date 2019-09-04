@@ -9,8 +9,8 @@ module.exports.writeModuleBuildFile =
       `# Generated BUILD file, see /tools/generator
 load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
 load("@npm_angular_bazel//:index.bzl", "ng_module")
-load("@npm_bazel_karma//:defs.bzl", "ts_web_test_suite")
 load("@npm_bazel_typescript//:defs.bzl", "ts_library")
+load("//tools:defaults.bzl", "ts_web_test_suite")
 
 package(default_visibility = ["//:__subpackages__"])
 
@@ -86,8 +86,8 @@ ts_web_test_suite(
         `);
 }
 
-    module.exports.writeFeatureModuleBuildFile =
-        function writeFeatureModuleBuildFile(file, {name, featureModuleDeps}) {
+    module.exports.writeFeatureModuleBuildFile = function writeFeatureModuleBuildFile(
+        file, {name, featureModuleDeps}) {
   fs.writeFileSync(
       file,
       // Make Buildifier happy, don't format line below.
