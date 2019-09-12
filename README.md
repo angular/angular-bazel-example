@@ -1,6 +1,8 @@
 [![CircleCI](https://circleci.com/gh/angular/angular-bazel-example.svg?style=svg)](https://circleci.com/gh/angular/angular-bazel-example)
 
-# Example Angular monorepo using Bazel
+# Moved to rules_nodejs monorepo: https://github.com/bazelbuild/rules_nodejs/tree/master/examples/angular
+
+**Readme content is preserved below to avoid breaking links**
 
 **This is experimental, as part of Angular Labs! There may be breaking changes.**
 
